@@ -1,0 +1,57 @@
+//header.scss
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f0f0f0; // Adjust the background color as needed
+    padding: 0 20px;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .logo img {
+    height: 70px; // Adjust size as needed
+    padding-left: 40px;
+    transition: transform 0.3s ease; // Smooth transition for scaling
+  }
+  
+  .logo img:hover {
+    transform: scale(1.1); // Adjust scale value as needed
+  }
+  
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px; // Adjust spacing between links as needed
+    transition: transform 0.3s ease; // Smooth transition for scaling
+    font-size: 1.2em;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: #333; // Adjust the text color as needed
+    font-weight: bold;
+    padding: 10px;
+    transition: transform 0.3s ease; // Smooth transition for scaling
+  }
+  
+  .nav-links a:hover {
+    transform: scale(1.1); // Adjust scale value as needed
+  }
+  
+  .sign-in button {
+    padding: 10px 20px;
+    padding-right: 20px;
+    border: 2px solid #f2873d; // Adjust border color as needed
+    background-color: transparent;
+    border-radius: 20px; // Adjust to get the rounded corners
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.3s ease; // Smooth transition for scaling
+    font-size: 1em;
+  }
+  
+  .sign-in button:hover {
+    transform: scale(1.1); // Adjust scale value as needed
+  }
+  

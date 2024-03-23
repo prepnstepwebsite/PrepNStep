@@ -1,0 +1,94 @@
+//home.scss
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; 
+}
+
+.image-gallery {
+    display: inline-block;
+}
+
+.carousel {
+    width: 100vw;
+    height: 100vh;
+    position: relative; 
+    overflow: hidden; 
+}
+
+.carousel-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    z-index: 0; // Ensure inactive items don't overlap the active one
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2); /* Adjust the alpha value (0.5 here) to make it darker or lighter */
+    pointer-events: none;
+  }
+
+.carousel-box {
+    position: absolute;
+    top: 50%;
+    left: 0; // Keeping the box at the left side
+    transform: translateY(-50%); // Vertically center the box
+    width: 50%;
+    background: linear-gradient(135deg, #26839C 0%, rgba(255, 255, 255, 0) 70%); // Adjusted gradient
+    z-index: 2;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; // Center content horizontally within the box
+}
+
+.carousel-box h2, .carousel-box p {
+    font-family: 'Poppins', sans-serif;
+    width: 100%; // Ensure full width for text centering
+    text-align: center; // Center text within the tags
+    margin: 0;
+}
+
+.carousel-box h2 {
+    color: white;
+    font-size: 2.7em;
+    font-weight: bold;
+    padding-bottom: 0.5em;
+}
+
+.typed-word{
+    color: #F2873D;
+}
+
+.carousel-box p {
+    font-size: 1.4em;
+    font-weight: bold;
+    line-height: 1.6;
+    color: #f0f0f0;
+    max-width: 80%; // Control the width of the paragraph
+    margin: 0 auto; // Center the paragraph if it's not full width
+}
+
+.carousel-item.active {
+    opacity: 1;
+    z-index: 1; // Ensure the active item is always on top
+}
