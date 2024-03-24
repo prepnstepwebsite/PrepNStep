@@ -1,4 +1,4 @@
-import React from 'react';
+import 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../../assets/images/PrepNStep.png'
 import './header.scss';

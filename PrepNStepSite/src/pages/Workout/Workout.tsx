@@ -1,4 +1,4 @@
-import React from 'react';
+import 'react';
 
 function Workout() {
   return <div>Welcome to the Workout Page!</div>;

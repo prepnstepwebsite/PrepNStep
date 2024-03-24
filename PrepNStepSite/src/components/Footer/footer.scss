@@ -1,0 +1,144 @@
+.footer {
+    background-color: #ececeb;
+    color: black;
+    padding: 40px;
+    font-family: Arial, sans-serif;
+  
+    .footer-columns {
+      display: flex;
+      justify-content: space-between;
+      padding-left: 60px;
+      padding-right: 60px;
+      margin-bottom: 40px;
+  
+      @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+    
+    .footer-column {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+  
+      @media (max-width: 768px) {
+        align-items: center;
+        margin-bottom: 20px;
+      }
+  
+      h4 {
+        margin-bottom: 20px;
+        font-size: 1.3em;
+
+      }
+  
+      ul {
+        list-style: none;
+        padding: 0;
+  
+        li {
+          margin-bottom: 10px;
+        }
+      }
+
+      .contact{
+        color: #e8a221
+      }
+  
+  
+      .social-media {
+        display: flex;
+        align-items: center;
+  
+      }
+    }
+
+    .newsletter-signup {
+        flex-direction: column; // Stack children vertically
+        justify-content: center; // Center them horizontally
+        align-items: center; // Align them vertically
+
+        
+      
+        input[type="text"] {
+          border: 2px solid #FFA500; // Orange border to match the button
+          border-right: none; // Remove the right border to merge with the button
+          border-radius: 25px 0 0 25px; // Only rounded on the left side
+          padding: 10px 20px;
+          font-size: 1em;
+          outline: none;
+      
+          // Adjust for a seamless transition between input and button
+          &:focus {
+            border-color: #FFA500;
+          }
+        }
+      
+        button {
+          border: 2px solid #FFA500; // Orange border
+          background-color: #fff; // White background
+          color: #000; // Black text
+          border-radius: 0 25px 25px 0; // Only rounded on the right side
+          padding: 10px 20px;
+          font-weight: bold;
+          font-size: 1em;
+          cursor: pointer;
+          transition: background-color 0.3s, color 0.3s;
+      
+          &:hover {
+            background-color: #FFA500;
+            color: #fff;
+          }
+        }
+      }
+
+      .newsletter-signup h4{
+        font-size: 1.3em;
+      }
+      
+      // Adjust the margin to ensure there is no space between the input and button
+      .newsletter-signup input[type="text"] + button {
+        margin-left: -2px; // This compensates for the border to avoid double borders
+      }
+      
+      .social-media {
+        display: flex;
+        justify-content: center;
+        padding-top: 10px; // Add space between the subscription box and the social media icons
+        margin-top: 10px; // Add space between the newsletter signup and social icons
+
+      }
+      
+      .social-icon {
+        // Adjust the width as necessary, example:
+        width: 34px;
+        height: auto;
+        margin: 0 5px; // Adjust space between icons
+      }
+  
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8em;
+  
+      @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+      }
+  
+      .footer-links {
+        a {
+          color: black;
+          margin-left: 20px;
+          text-decoration: none;
+  
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+  
