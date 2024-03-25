@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { ReviewCard } from "../../components/Reviews/Reviews";
 import socialReviews from "../../assets/images/Reviews.png";
-import reviews from './reviewsData';
+import weeklyMenuData from "./weeklyMenu";
+import reviews from "./reviewsData";
 import "./home.scss";
 
 import imagecarousel1 from "../../assets/images/ordering.png";
@@ -49,10 +50,11 @@ const reasons = [
   },
 ];
 
-
-
-
-
+interface WeeklyMenuItemProps {
+  category: string;
+  title: string;
+  imageUrl: string;
+}
 
 const Home = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -77,17 +79,17 @@ const Home = () => {
   }, []);
 
   const reviewCount = reviews.length;
-  const totalSlides = reviewCount * 2; // Only need to double for seamless looping
   const actualSlideIndex = useRef(0);
   const combinedReviews = [...reviews, ...reviews];
 
-  
   useEffect(() => {
     const timer = setInterval(() => {
-      if (sliderRef.current) { // Checking if sliderRef.current is not null
-        actualSlideIndex.current = (actualSlideIndex.current + 1) % combinedReviews.length;
+      if (sliderRef.current) {
+        // Checking if sliderRef.current is not null
+        actualSlideIndex.current =
+          (actualSlideIndex.current + 1) % combinedReviews.length;
         if (actualSlideIndex.current === reviewCount) {
-          sliderRef.current.style.transition = 'none'; // Directly manipulate the DOM node
+          sliderRef.current.style.transition = "none"; // Directly manipulate the DOM node
           setSlideIndex(0);
           actualSlideIndex.current = 0;
 
@@ -97,7 +99,7 @@ const Home = () => {
           // Reapply transition
           requestAnimationFrame(() => {
             if (sliderRef.current) {
-              sliderRef.current.style.transition = 'transform 5s linear';
+              sliderRef.current.style.transition = "transform 5s linear";
             }
           });
         } else {
@@ -108,9 +110,6 @@ const Home = () => {
 
     return () => clearInterval(timer);
   }, []);
-  
-  
-  
 
   useEffect(() => {
     typingTimeoutRef.current = setTimeout(() => {
@@ -132,6 +131,21 @@ const Home = () => {
       }
     };
   }, [charIndex, currentImageIndex]);
+
+  // Weekly menu item component
+  const WeeklyMenuItem: React.FC<WeeklyMenuItemProps> = ({
+    category,
+    title,
+    imageUrl,
+  }) => {
+    return (
+      <div className="weekly-menu-item">
+        <img src={imageUrl} alt={title} className="weekly-menu-image" />
+        <div className="weekly-menu-category">{category}</div>
+        <div className="weekly-menu-title">{title}</div>
+      </div>
+    );
+  };
 
   return (
     <>
@@ -177,7 +191,25 @@ const Home = () => {
       </div>
 
       {/* Beginning of Weekly Menu */}
-      <h2>Weekly Menu</h2>
+      <section className="weekly-menu">
+        <h1>Choose from</h1>
+        <h2>20+ weekly options</h2>
+        <div className="weekly-menu-container">
+          {weeklyMenuData.map((item, index) => (
+            <WeeklyMenuItem
+              key={index}
+              category={item.category}
+              title={item.title}
+              imageUrl={item.imageUrl}
+            />
+          ))}
+        </div>
+        <div className="menu-button-container">
+  <button className="menu-button" onClick={() => window.location.href = '/WeeklyMenu'}>
+    BROWSE OUR MENUS
+  </button>
+</div>
+      </section>
 
       {/* Beginning of Reviews */}
       <div className="reviews-heading">
@@ -193,7 +225,7 @@ const Home = () => {
         <div
           ref={sliderRef} // Attach the ref here
           className="reviews-slider"
-          style={{ 
+          style={{
             transform: `translateX(-${slideIndex * (450 + 24)}px)`,
           }}
         >
@@ -202,7 +234,6 @@ const Home = () => {
           ))}
         </div>
       </div>
-
     </>
   );
 };

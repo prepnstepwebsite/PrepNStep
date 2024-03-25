@@ -44,12 +44,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.2
-  ); /* Adjust the alpha value (0.5 here) to make it darker or lighter */
+  background-color: rgba(0, 0, 0, 0.2);
   pointer-events: none;
 }
 
@@ -116,7 +111,6 @@ body {
   grid-template-columns: repeat(4, 1fr); // Use grid for equal spacing
   gap: 20px; // Add some space between columns
   padding: 40px; // Padding around the entire container
-  background-color: #ececeb;
   color: black; // White text for contrast
 }
 
@@ -161,6 +155,96 @@ a {
 }
 
 //------------ End of Why PrepNStep ------------------
+
+//------------ Beginning of Menu Items ------------------
+
+.weekly-menu {
+  padding: 1em;
+  text-align: center;
+  background-color: #ececeb;
+  margin-top: -50px;
+  font-family: "Poppins", sans-serif;
+
+  h1 {
+    color: #15505f;
+    font-size: 2.25em; // You can adjust the font size as needed
+
+  }
+
+  h2 {
+    color: #25839B;
+    margin-top: -15px;
+    font-size: 3em; // You can adjust the font size as needed
+
+  }
+}
+
+.weekly-menu-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); // Creates four columns of equal width
+  gap: 1rem;
+  justify-content: center; // Centers the grid items in the container
+  align-items: start; // Centers the grid items vertically
+}
+
+.weekly-menu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto; // Added to ensure each item is also centered
+}
+
+.weekly-menu-image {
+  width: 250px;
+  max-width: 250px; // You can set a max-width to control the image size
+  object-fit: cover;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px; // Adds some space between the image and the text below it
+}
+
+.weekly-menu-category {
+  margin-top: 0.5rem;
+  font-weight: bold;
+  color: #333;
+  font-size: 0.9em; // You can adjust the font size as needed
+}
+
+.weekly-menu-title {
+  margin-top: 0.25rem;
+  font-size: 1em; // You can adjust the font size as needed
+}
+
+.menu-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; // Adjust as needed
+}
+
+.menu-button {
+  padding: 10px 20px; // Adjust padding as needed
+  border: 2px solid #25839B; // Blue border
+  border-radius: 20px; // Rounded corners
+  background-color: transparent; // Transparent background
+  color: #25839B; // Blue text
+  font-size: 16px; // Adjust font-size as needed
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: #15505f; // Blue background on hover
+    color: #FFFFFF; // White text on hover
+  }
+
+  &:active {
+    transform: scale(0.98); // Slight shrink effect on click
+  }
+}
+
+//------------ End of Menu Items ------------------
+
 
 //------------ Beginning of Reviews ------------------
 
