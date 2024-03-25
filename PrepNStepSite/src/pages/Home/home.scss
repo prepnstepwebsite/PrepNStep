@@ -1,154 +1,194 @@
 //home.scss
 
-html, body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden; 
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
 //------------ Beginning image carousel ------------------
 
 .image-gallery {
-    display: inline-block;
+  display: inline-block;
 }
 
 .carousel {
-    width: 100vw;
-    height: 100vh;
-    position: relative; 
-    overflow: hidden; 
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
 }
 
 .carousel-item {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-    z-index: 0; // Ensure inactive items don't overlap the active one
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 0; // Ensure inactive items don't overlap the active one
 }
 
 .carousel-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
 }
 
 .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.2); /* Adjust the alpha value (0.5 here) to make it darker or lighter */
-    pointer-events: none;
-  }
-
-.carousel-box {
-    position: absolute;
-    top: 50%;
-    left: 0; // Keeping the box at the left side
-    transform: translateY(-50%); // Vertically center the box
-    width: 50%;
-    background: linear-gradient(135deg, #26839C 0%, rgba(255, 255, 255, 0) 70%); // Adjusted gradient
-    z-index: 2;
-    padding: 20px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; // Center content horizontally within the box
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.2
+  ); /* Adjust the alpha value (0.5 here) to make it darker or lighter */
+  pointer-events: none;
 }
 
-.carousel-box h2, .carousel-box p {
-    font-family: 'Poppins', sans-serif;
-    width: 100%; // Ensure full width for text centering
-    text-align: center; // Center text within the tags
-    margin: 0;
+.carousel-box {
+  position: absolute;
+  top: 50%;
+  left: 0; // Keeping the box at the left side
+  transform: translateY(-50%); // Vertically center the box
+  width: 50%;
+  background: linear-gradient(
+    135deg,
+    #26839c 0%,
+    rgba(255, 255, 255, 0) 70%
+  ); // Adjusted gradient
+  z-index: 2;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; // Center content horizontally within the box
+}
+
+.carousel-box h2,
+.carousel-box p {
+  font-family: "Poppins", sans-serif;
+  width: 100%; // Ensure full width for text centering
+  text-align: center; // Center text within the tags
+  margin: 0;
 }
 
 .carousel-box h2 {
-    color: white;
-    font-size: 2.7em;
-    font-weight: bold;
-    padding-bottom: 0.5em;
+  color: white;
+  font-size: 2.7em;
+  font-weight: bold;
+  padding-bottom: 0.5em;
 }
 
-.typed-word{
-    color: #F2873D;
+.typed-word {
+  color: #f2873d;
 }
 
 .carousel-box p {
-    font-size: 1.4em;
-    font-weight: bold;
-    line-height: 1.6;
-    color: #f0f0f0;
-    max-width: 80%; // Control the width of the paragraph
-    margin: 0 auto; // Center the paragraph if it's not full width
+  font-size: 1.4em;
+  font-weight: bold;
+  line-height: 1.6;
+  color: #f0f0f0;
+  max-width: 80%; // Control the width of the paragraph
+  margin: 0 auto; // Center the paragraph if it's not full width
 }
 
 .carousel-item.active {
-    opacity: 1;
-    z-index: 1; // Ensure the active item is always on top
+  opacity: 1;
+  z-index: 1; // Ensure the active item is always on top
 }
 
-
 //------------ End of image carousel ------------------
-
 
 //------------ Beginning of Why PrepNStep------------------
 
 .reasons-container {
-    font-family: 'Poppins', sans-serif;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); // Use grid for equal spacing
-    gap: 20px; // Add some space between columns
-    padding: 40px; // Padding around the entire container
-    background-color: #ececeb;
-    color: black; // White text for contrast
+  font-family: "Poppins", sans-serif;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); // Use grid for equal spacing
+  gap: 20px; // Add some space between columns
+  padding: 40px; // Padding around the entire container
+  background-color: #ececeb;
+  color: black; // White text for contrast
+}
+
+.reason {
+  text-align: center;
+  padding: 20px; // Padding inside each reason box
+}
+
+.reason-image {
+  width: 100px; // Set a fixed size for images
+  height: auto;
+  margin: 0 auto 20px; // Center image and add margin below
+}
+
+.reason-title {
+  font-size: 1.5em; // Slightly larger font size for the title
+  font-weight: bold; // Bold font for titles
+  margin-bottom: 10px;
+}
+
+.reason-description {
+  font-size: 1.1em; // Smaller font size for descriptions
+}
+
+// Remove bullets and padding from list for a cleaner look
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+// Ensure anchor tags don't have underlines for a cleaner look
+a {
+  text-decoration: none;
+  color: inherit; // Anchor tags inherit text color from parent
+}
+
+// Media query for responsive adjustments on smaller screens
+@media (max-width: 768px) {
+  .reasons-container {
+    grid-template-columns: repeat(2, 1fr); // 2 columns on small screens
   }
-  
-  .reason {
-    text-align: center;
-    padding: 20px; // Padding inside each reason box
+}
+
+//------------ End of Why PrepNStep ------------------
+
+//------------ Beginning of Reviews ------------------
+
+.centered-image {
+  display: flex;
+  justify-content: center;
+  margin-top: -30px;
+
+  img {
+    max-width: 100%; // Ensures the image is responsive and doesn't overflow its container
+    height: auto; // Keeps the image's aspect ratio
   }
-  
-  .reason-image {
-    width: 100px; // Set a fixed size for images
-    height: auto;
-    margin: 0 auto 20px; // Center image and add margin below
+}
+
+.reviews-heading {
+  text-align: center;
+  margin-bottom: -30px; // You can adjust this as per your design
+
+  h2 {
+    font-size: 2.5em; // Large font size for main title
+    color: #333; // Assuming a dark color for high contrast
+    margin-bottom: 0.25em; // Spacing between title and subtitle
   }
-  
-  .reason-title {
-    font-size: 1.5em; // Slightly larger font size for the title
-    font-weight: bold; // Bold font for titles
-    margin-bottom: 10px;
+
+  .subtitle {
+    font-size: 1em; // Smaller font size for subtitle
+    color: #777; // A lighter shade for the subtitle
   }
-  
-  .reason-description {
-    font-size: 1.1em; // Smaller font size for descriptions
-  }
-  
-  // Remove bullets and padding from list for a cleaner look
-  ul {
-    list-style: none;
-    padding-left: 0;
-  }
-  
-  // Ensure anchor tags don't have underlines for a cleaner look
-  a {
-    text-decoration: none;
-    color: inherit; // Anchor tags inherit text color from parent
-  }
-  
-  // Media query for responsive adjustments on smaller screens
-  @media (max-width: 768px) {
-    .reasons-container {
-      grid-template-columns: repeat(2, 1fr); // 2 columns on small screens
-    }
-  }
-  
-//------------ End of Why PrepNStep------------------
+}
+
+//------------ End of Reviews ------------------

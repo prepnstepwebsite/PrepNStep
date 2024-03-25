@@ -1,0 +1,89 @@
+//reviews.scss
+
+.reviews-container {
+  overflow: hidden;
+  display: grid;
+  position: relative;
+  width: 100%;
+  height: 200px;
+  grid-template-columns: repeat(4, 1fr); // Creates four columns
+  grid-gap: 24px; // This adds space between the cards
+  padding: 0 24px;
+  justify-items: center; // This will center the cards in their grid columns if they are not full width
+}
+
+.reviews-slider {
+    display: flex;
+    position: absolute;
+    transition: transform 5s linear; // Slowing down the transition
+    left: 0;
+    width: calc(9 * (450px + 24px));
+}
+
+
+
+.review-card {
+  border: 1px solid #ccc;
+  flex: 0 0 auto;
+  width: 100%;
+  border-radius: 8px;
+  padding: 30px;
+  margin-bottom: 36px;
+  background-color: #fff;
+  max-width: 450px;
+  margin-right: 24px; // Adjust based on your design for space between cards
+
+
+  .reviewer-name {
+    font-weight: bold;
+    margin-left: 63px;
+    margin-bottom: -10px;
+  }
+
+  .review-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+
+    .review-stars {
+      color: #ffa500; // Gold color for stars
+      margin-right: 8px;
+    }
+
+    .review-date {
+      font-size: 0.8em;
+      color: #666;
+    }
+  }
+
+  .review-content {
+    font-size: 0.9em;
+    line-height: 1.4;
+  }
+
+  .review-profile-pic img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Makes the image circular */
+    object-fit: cover; /* Ensures the image covers the space without distorting */
+    margin-right: 10px; /* Adds some space between the image and the text */
+  }
+}
+
+@media (max-width: 1200px) {
+  .reviews-container {
+    grid-template-columns: repeat(3, 1fr); // 3 columns for smaller screens
+  }
+}
+
+@media (max-width: 900px) {
+  .reviews-container {
+    grid-template-columns: repeat(2, 1fr); // 2 columns for even smaller screens
+  }
+}
+
+@media (max-width: 600px) {
+  .reviews-container {
+    grid-template-columns: 1fr; // 1 column for mobile screens
+  }
+}

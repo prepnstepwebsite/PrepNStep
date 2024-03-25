@@ -43,7 +43,9 @@
       }
 
       .contact{
-        color: #e8a221
+        color: #F2873D;
+        font-weight: bold;
+
       }
   
   
@@ -62,7 +64,7 @@
         
       
         input[type="text"] {
-          border: 2px solid #FFA500; // Orange border to match the button
+          border: 2px solid #F2873D; // Orange border to match the button
           border-right: none; // Remove the right border to merge with the button
           border-radius: 25px 0 0 25px; // Only rounded on the left side
           padding: 10px 20px;
@@ -71,12 +73,12 @@
       
           // Adjust for a seamless transition between input and button
           &:focus {
-            border-color: #FFA500;
+            border-color: #F2873D;
           }
         }
       
         button {
-          border: 2px solid #FFA500; // Orange border
+          border: 2px solid #F2873D; // Orange border
           background-color: #fff; // White background
           color: #000; // Black text
           border-radius: 0 25px 25px 0; // Only rounded on the right side
@@ -87,7 +89,7 @@
           transition: background-color 0.3s, color 0.3s;
       
           &:hover {
-            background-color: #FFA500;
+            background-color: #F2873D;
             color: #fff;
           }
         }

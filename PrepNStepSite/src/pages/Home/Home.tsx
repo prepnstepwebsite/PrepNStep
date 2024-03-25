@@ -1,7 +1,9 @@
 import { useState, useEffect, useRef } from "react";
+import { ReviewCard } from "../../components/Reviews/Reviews";
+import socialReviews from "../../assets/images/Reviews.png";
+import reviews from './reviewsData';
 import "./home.scss";
 
-// Import images
 import imagecarousel1 from "../../assets/images/ordering.png";
 import imagecarousel2 from "../../assets/images/deliver.jpg";
 import imagecarousel3 from "../../assets/images/workingout.jpg";
@@ -20,34 +22,44 @@ import dealImg from "../../assets/images/piggy-bank.png";
 import qualityImg from "../../assets/images/grocery-basket.png";
 import flavorImg from "../../assets/images/restaurant.png";
 
-
 const reasons = [
   {
     title: "Seamless Convenience",
-    description: "Maximize your time with our easy, efficient ordering process that saves you both time and expense.",
+    description:
+      "Maximize your time with our easy, efficient ordering process that saves you both time and expense.",
     imgSrc: convenienceImg,
   },
   {
     title: "Dual Benefit Plan",
-    description: "Experience the synergy of tailored workouts paired with personalized nutrition plans for optimal health.",
+    description:
+      "Experience the synergy of tailored workouts paired with personalized nutrition plans for optimal health.",
     imgSrc: dealImg,
   },
   {
     title: "Pristine Ingredients",
-    description: "Discover the difference with our hand-selected ingredients, proudly sourced from local artisans and farmers.",
+    description:
+      "Discover the difference with our hand-selected ingredients, proudly sourced from local artisans and farmers.",
     imgSrc: qualityImg,
   },
   {
     title: "Culinary Delights",
-    description: "Indulge in a culinary adventure with meals that are as nourishing as they are delightful to the palate.",
+    description:
+      "Indulge in a culinary adventure with meals that are as nourishing as they are delightful to the palate.",
     imgSrc: flavorImg,
   },
 ];
+
+
+
+
+
 
 const Home = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [typedWord, setTypedWord] = useState("");
   const [charIndex, setCharIndex] = useState(0);
+  const [slideIndex, setSlideIndex] = useState(0);
+  const sliderRef = useRef<HTMLDivElement>(null);
   const typingTimeoutRef = useRef<number | null>(null);
 
   useEffect(() => {
@@ -63,6 +75,42 @@ const Home = () => {
       }
     };
   }, []);
+
+  const reviewCount = reviews.length;
+  const totalSlides = reviewCount * 2; // Only need to double for seamless looping
+  const actualSlideIndex = useRef(0);
+  const combinedReviews = [...reviews, ...reviews];
+
+  
+  useEffect(() => {
+    const timer = setInterval(() => {
+      if (sliderRef.current) { // Checking if sliderRef.current is not null
+        actualSlideIndex.current = (actualSlideIndex.current + 1) % combinedReviews.length;
+        if (actualSlideIndex.current === reviewCount) {
+          sliderRef.current.style.transition = 'none'; // Directly manipulate the DOM node
+          setSlideIndex(0);
+          actualSlideIndex.current = 0;
+
+          // Forcing reflow
+          sliderRef.current.offsetHeight;
+
+          // Reapply transition
+          requestAnimationFrame(() => {
+            if (sliderRef.current) {
+              sliderRef.current.style.transition = 'transform 5s linear';
+            }
+          });
+        } else {
+          setSlideIndex(actualSlideIndex.current);
+        }
+      }
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, []);
+  
+  
+  
 
   useEffect(() => {
     typingTimeoutRef.current = setTimeout(() => {
@@ -87,7 +135,7 @@ const Home = () => {
 
   return (
     <>
-    {/* //Beginning of image carousel */}
+      {/* Beginning of image carousel */}
       <div className="carousel">
         <div className="carousel-box">
           <div className="text-center">
@@ -128,8 +176,32 @@ const Home = () => {
         ))}
       </div>
 
+      {/* Beginning of Weekly Menu */}
+      <h2>Weekly Menu</h2>
+
       {/* Beginning of Reviews */}
-      <h2>Reviews</h2>
+      <div className="reviews-heading">
+        <h2 className="text-center">Hear it from Our Happy Customers</h2>
+        <p className="text-center subtitle">
+          Real stories from satisfied patrons
+        </p>
+        <div className="centered-image">
+          <img src={socialReviews} alt="Customer Satisfaction" />
+        </div>
+      </div>
+      <div className="reviews-container">
+        <div
+          ref={sliderRef} // Attach the ref here
+          className="reviews-slider"
+          style={{ 
+            transform: `translateX(-${slideIndex * (450 + 24)}px)`,
+          }}
+        >
+          {combinedReviews.map((review, index) => (
+            <ReviewCard key={index} review={review} />
+          ))}
+        </div>
+      </div>
 
     </>
   );
