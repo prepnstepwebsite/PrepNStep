@@ -1,8 +1,7 @@
 import { useState } from "react";
-import "./mealplans.scss";
+import "../../pages/MealPlans/mealplans.scss"
 
-import craft from "../../assets/weeklyMenu/craft.png";
-
+import chef from "../../assets/weeklyMenu/chefChoice.png";
 
 function MealPlans() {
   const [planType, setPlanType] = useState("Meal Kits");
@@ -20,42 +19,42 @@ function MealPlans() {
       name: "Pesto & Roasted Red Pepper Pan Pizza",
       description: "with Arugula Salad & Almonds",
       prepTime: "40 MIN",
-      image: craft,
+      image: chef,
       tag: "KETO FRIENDLY",
     },
     {
       name: "Pesto & Roasted Red Pepper Pan Pizza",
       description: "with Arugula Salad & Almonds",
       prepTime: "40 MIN",
-      image: craft,
+      image: chef,
       tag: "KETO FRIENDLY",
     },
     {
       name: "Pesto & Roasted Red Pepper Pan Pizza",
       description: "with Arugula Salad & Almonds",
       prepTime: "40 MIN",
-      image: craft,
+      image: chef,
       tag: "KETO FRIENDLY",
     },
     {
       name: "Pesto & Roasted Red Pepper Pan Pizza",
       description: "with Arugula Salad & Almonds",
       prepTime: "40 MIN",
-      image: craft,
+      image: chef,
       tag: "KETO FRIENDLY",
     },
     {
       name: "Pesto & Roasted Red Pepper Pan Pizza",
       description: "with Arugula Salad & Almonds",
       prepTime: "40 MIN",
-      image: craft,
+      image: chef,
       tag: "KETO FRIENDLY",
     },
     {
       name: "Pesto & Roasted Red Pepper Pan Pizza",
       description: "with Arugula Salad & Almonds",
       prepTime: "40 MIN",
-      image: craft,
+      image: chef,
       tag: "KETO FRIENDLY",
     },
 
@@ -68,7 +67,7 @@ function MealPlans() {
         <header className="meal-kits-header">
           <nav className="meal-kits-nav">
             <ul>
-              <li className="active">
+              <li>
                 <a href="/mealplans">Meal Kits</a>
                 <span>2 servings</span>
               </li>
@@ -80,17 +79,17 @@ function MealPlans() {
                 <a href="/Cutting">Cutting</a>
                 <span>1 serving</span>
               </li>
-              <li>
+              <li className="active">
                 <a href="/ChefsChoice">Chefs Choice</a>
                 <span>Servings vary</span>
               </li>
             </ul>
           </nav>
 
-          <h1>Meal Kits</h1>
+          <h1>Chefs Choice</h1>
           <p>
             An ever-changing mix of easy-to-follow recipes perfectly portioned
-            for two.
+            for via the chef's discretion.
           </p>
           <div className="week-and-plans">
             <h2 className="week-title">Week of April 1st</h2>

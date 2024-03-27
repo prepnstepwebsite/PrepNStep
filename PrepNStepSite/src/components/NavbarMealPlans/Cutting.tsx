@@ -1,7 +1,10 @@
 import { useState } from "react";
-import "./mealplans.scss";
+import "../../pages/MealPlans/mealplans.scss"
 
-import craft from "../../assets/weeklyMenu/craft.png";
+
+
+import wellness from "../../assets/weeklyMenu/wellness.png";
+
 
 
 function MealPlans() {
@@ -20,42 +23,42 @@ function MealPlans() {
       name: "Pesto & Roasted Red Pepper Pan Pizza",
       description: "with Arugula Salad & Almonds",
       prepTime: "40 MIN",
-      image: craft,
+      image: wellness,
       tag: "KETO FRIENDLY",
     },
     {
       name: "Pesto & Roasted Red Pepper Pan Pizza",
       description: "with Arugula Salad & Almonds",
       prepTime: "40 MIN",
-      image: craft,
+      image: wellness,
       tag: "KETO FRIENDLY",
     },
     {
       name: "Pesto & Roasted Red Pepper Pan Pizza",
       description: "with Arugula Salad & Almonds",
       prepTime: "40 MIN",
-      image: craft,
+      image: wellness,
       tag: "KETO FRIENDLY",
     },
     {
       name: "Pesto & Roasted Red Pepper Pan Pizza",
       description: "with Arugula Salad & Almonds",
       prepTime: "40 MIN",
-      image: craft,
+      image: wellness,
       tag: "KETO FRIENDLY",
     },
     {
       name: "Pesto & Roasted Red Pepper Pan Pizza",
       description: "with Arugula Salad & Almonds",
       prepTime: "40 MIN",
-      image: craft,
+      image: wellness,
       tag: "KETO FRIENDLY",
     },
     {
       name: "Pesto & Roasted Red Pepper Pan Pizza",
       description: "with Arugula Salad & Almonds",
       prepTime: "40 MIN",
-      image: craft,
+      image: wellness,
       tag: "KETO FRIENDLY",
     },
 
@@ -68,7 +71,7 @@ function MealPlans() {
         <header className="meal-kits-header">
           <nav className="meal-kits-nav">
             <ul>
-              <li className="active">
+              <li>
                 <a href="/mealplans">Meal Kits</a>
                 <span>2 servings</span>
               </li>
@@ -76,7 +79,7 @@ function MealPlans() {
                 <a href="/MuscleGain">Muscle Gain</a>
                 <span>4 servings</span>
               </li>
-              <li>
+              <li className="active">
                 <a href="/Cutting">Cutting</a>
                 <span>1 serving</span>
               </li>
@@ -87,10 +90,10 @@ function MealPlans() {
             </ul>
           </nav>
 
-          <h1>Meal Kits</h1>
+          <h1>Wellness</h1>
           <p>
             An ever-changing mix of easy-to-follow recipes perfectly portioned
-            for two.
+            for one.
           </p>
           <div className="week-and-plans">
             <h2 className="week-title">Week of April 1st</h2>
