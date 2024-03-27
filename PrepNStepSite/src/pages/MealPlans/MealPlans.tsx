@@ -1,8 +1,7 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import "./mealplans.scss";
 
 import craft from "../../assets/weeklyMenu/craft.png";
-
 
 function MealPlans() {
   const [planType, setPlanType] = useState("Meal Kits");
@@ -10,10 +9,14 @@ function MealPlans() {
   const [mealsPerWeek, setMealsPerWeek] = useState(3);
   const [pricePerServing, _setPricePerServing] = useState(4.37);
   const shippingCost = 0;
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+
 
   const calculateTotal = () => {
     return (servingsPerMeal * mealsPerWeek * pricePerServing).toFixed(2);
   };
+
 
   const mealOptions = [
     {
@@ -58,12 +61,46 @@ function MealPlans() {
       image: craft,
       tag: "KETO FRIENDLY",
     },
-
   ];
+
+  const faqItems = [
+    {
+      question: "How does the meal subscription service work?",
+      answer:
+        "Our meal subscription service allows you to choose from a variety of meal plans and have them delivered to your doorstep on a weekly basis. You can customize your plan based on your dietary preferences and number of servings.",
+    },
+    {
+      question: "Can I pause or cancel my subscription?",
+      answer:
+        "Yes, you can pause or cancel your subscription at any time through your account settings or by contacting our customer service team.",
+    },
+    {
+      question: "Are there vegetarian or vegan meal options available?",
+      answer:
+        "Absolutely! We offer a diverse selection of meal options that cater to vegetarian and vegan diets. Our menu changes regularly to provide fresh and seasonal ingredients.",
+    },
+    {
+      question: "How are the ingredients for the meals sourced?",
+      answer:
+        "We prioritize sustainability and quality in our sourcing. Ingredients are organically grown and sourced from local farms whenever possible, ensuring that you receive the freshest produce while also supporting local agriculture.",
+    }
+  ];
+
+
+  const faqRefs = useRef<(HTMLDivElement | null)[]>(new Array(faqItems.length).fill(null));
+
+
+  const toggleFAQ = (index: number) => {
+    const current = faqRefs.current[index];
+    if (!current) return;
+
+    setActiveIndex(activeIndex === index ? null : index);
+    current.style.maxHeight = activeIndex === index ? '0px' : `${current.scrollHeight}px`;
+  };
 
   return (
     <>
-    {/* Begging of the navbar */}
+      {/* Begging of the navbar */}
       <div className="meal-kits-page">
         <header className="meal-kits-header">
           <nav className="meal-kits-nav">
@@ -100,42 +137,38 @@ function MealPlans() {
 
         {/* Beginning of the Week meals */}
         <div className="meal-options">
-
           {mealOptions.map((meal, index) => (
             <div className="meal-option" key={index}>
-                  <a href="/meal-detail" className="meal-card">
-
-              <img src={meal.image} alt={meal.name} />
-              <div className="meal-tag">{meal.tag}</div>
-              <div className="meal-info">
-                <div className="meal-name">{meal.name}</div>
-                <div className="meal-description">{meal.description}</div>
-                <div className="meal-prep-time">
-                  <svg
-                    className="clock-icon"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <polyline points="12 6 12 12 16 14"></polyline>
-                  </svg>
-                  40 MIN
+              <a href="/meal-detail" className="meal-card">
+                <img src={meal.image} alt={meal.name} />
+                <div className="meal-tag">{meal.tag}</div>
+                <div className="meal-info">
+                  <div className="meal-name">{meal.name}</div>
+                  <div className="meal-description">{meal.description}</div>
+                  <div className="meal-prep-time">
+                    <svg
+                      className="clock-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    40 MIN
+                  </div>
                 </div>
-              </div>
               </a>
             </div>
           ))}
-
         </div>
       </div>
-
 
       {/* Start of the Build your Plan */}
       <div className="meal-plans">
@@ -219,7 +252,32 @@ function MealPlans() {
         </div>
       </div>
 
-      
+      {/* FAQ Section */}
+      <section className="faq-section">
+      <div className="container">
+        <div className="faq-title">
+          <h2>Frequently Asked Questions</h2>
+        </div>
+        <div className="faq-content">
+        {faqItems.map((item, index) => (
+          <div
+            className={`faq-item ${activeIndex === index ? "active" : ""}`}
+            key={index}
+            onClick={() => toggleFAQ(index)}
+          >
+            <div className="faq-question">{item.question}</div>
+            <div
+              className="faq-answer"
+              ref={(el) => faqRefs.current[index] = el}
+              // Remove the inline style for display
+            >
+              {item.answer}
+            </div>
+          </div>
+        ))}
+      </div>
+      </div>
+    </section>
     </>
   );
 }
