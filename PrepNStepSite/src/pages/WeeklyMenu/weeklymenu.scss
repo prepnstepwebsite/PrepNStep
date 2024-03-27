@@ -1,8 +1,10 @@
 // mealplans.scss
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap');
+
 
 //----------------- Beginning of Navbar -----------------
 .meal-kits-nav {
-    font-family: "Poppins", sans-serif;
+    font-family: var(--Playfair);  
     ul {
       list-style: none;
       padding: 0;
@@ -64,6 +66,7 @@
       margin-bottom: 40px;
   
       h1 {
+        font-family: Chronicle Deck, Times, serif;
         font-size: 2em;
         margin-bottom: 0.25em;
       }
@@ -75,6 +78,7 @@
       }
   
       h2 {
+        font-family: Cera Pro, HelveticaNeue, Helvetica Neue, HelveticaNeueRoman, HelveticaNeue-Roman, Helvetica Neue Roman, TeXGyreHerosRegular, Helvetica, Tahoma, Geneva, Arial, sans-serif;
         font-size: 1.5em;
         margin-bottom: 1em;
       }
@@ -230,208 +234,6 @@
   }
   //----------------- End of images for meals-----------------
   
-  //----------------- Beginning of build your plan -----------------
-  .meal-plans {
-    max-width: 600px;
-    margin: 40px auto;
-    font-family: "Poppins", sans-serif;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-  
-    .header {
-      font-size: 24px;
-      text-align: center;
-      padding: 10px 210px;
-      margin-bottom: 20px;
-      font-weight: 600;
-    }
-  
-    .plan-type-selector {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 20px;
-  
-      .plan-type-option {
-        background-color: #f6f6f6;
-        color: #333;
-        padding: 10px 20px;
-        margin: 0 5px;
-        border: 2px solid transparent;
-        border-radius: 20px;
-        cursor: pointer;
-        font-weight: bold;
-        transition: background-color 0.3s, color 0.3s, border 0.3s;
-  
-        &:hover {
-          background-color: #e6e6e6;
-        }
-  
-        &.selected {
-          background-color: #25839b;
-          color: white;
-          border: 2px solid #25839b;
-        }
-      }
-    }
-  
-    .description {
-      text-align: center;
-      margin-bottom: 20px;
-      font-size: 14px;
-      color: #666;
-    }
-  
-    .selectors {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      justify-content: center;
-      margin-bottom: 20px;
-  
-      .selector-group {
-        display: flex;
-        justify-content: space-between; // Adjust as necessary for alignment
-  
-        .servings-selector,
-        .meals-selector {
-          flex: 1; // Make them take equal space
-  
-          .buttons-row {
-            display: flex; // This will align buttons in a row
-            justify-content: center; // Center the buttons
-          }
-        }
-      }
-  
-      .servings-selector,
-      .meals-selector {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-self: center;
-  
-        label {
-          font-size: 14px;
-          margin-bottom: 10px;
-          color: #666;
-          font-weight: 600;
-        }
-  
-        .selector-button {
-          background-color: #f6f6f6;
-          color: #333;
-          padding: 10px 0; // Adjust vertical padding as needed
-          border: 1px solid #ccc;
-          min-width: 90px; // Set a minimum width for buttons
-          flex: 1; // Allow buttons to expand
-          cursor: pointer;
-          transition: background-color 0.3s, color 0.3s;
-          text-align: center;
-          font-size: 16px; // Adjust font size as needed
-          margin: 0; // Remove margin to make buttons connected
-          border-radius: 0; // Remove border-radius to make buttons squared
-  
-          &:not(:first-child) {
-            border-left: none; // Remove left border to make buttons look connected
-          }
-  
-          &:first-child {
-            border-top-left-radius: 8px;
-            border-bottom-left-radius: 8px;
-          }
-  
-          &:last-child {
-            border-top-right-radius: 8px;
-            border-bottom-right-radius: 8px;
-          }
-  
-          &:hover {
-            background-color: #e6e6e6;
-          }
-  
-          &.active {
-            background-color: #25839b;
-            color: white;
-            border: 1px solid #25839b;
-            z-index: 1; // Bring the active button above others to maintain border overlap
-          }
-        }
-      }
-    }
-  
-    .buttons-row {
-      display: flex;
-    }
-  
-    .servings-selector .buttons-row,
-    .meals-selector .buttons-row {
-      button + button {
-        margin-left: -1px; // Overlap buttons by 1px
-      }
-    }
-  
-    .price-display {
-      text-align: center;
-      margin-bottom: 20px;
-  
-      .price-per-serving,
-      .shipping,
-      .total-price {
-        font-size: 16px;
-        color: #333;
-        margin: 5px 0;
-        font-weight: 600;
-      }
-  
-      .discount-note {
-        font-size: 12px;
-        color: #666;
-        margin-top: 10px;
-      }
-    }
-  
-    .continue-button {
-      width: 100%;
-      background-color: #25839b;
-      color: white;
-      padding: 15px 20px;
-      border: none;
-      border-radius: 20px;
-      cursor: pointer;
-      font-size: 16px;
-      font-weight: bold;
-      margin-top: 10px;
-      transition: background-color 0.3s;
-      grid-column: span 2;
-  
-      &:hover {
-        background-color: #15505f;
-      }
-    }
-  
-    .cancellation-note {
-      text-align: center;
-      margin-top: 20px;
-      font-size: 12px;
-      color: #666;
-      grid-column: span 2;
-    }
-  
-    .columns {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px; // Adjust the gap to match your design
-      align-items: start;
-  
-      @media (max-width: 768px) {
-        grid-template-columns: 1fr; // Stack the columns on smaller screens
-      }
-    }
-  }
-  
-  //----------------- End of build your plan -----------------
   
   //----------------- Begining of FAQ ----------------
   

@@ -107,7 +107,7 @@ function MealPlans() {
           <nav className="meal-kits-nav">
             <ul>
               <li>
-                <a href="/mealplans">Meal Kits</a>
+                <a href="/weeklymenu">Meal Kits</a>
                 <span>2 servings</span>
               </li>
               <li className="active">

@@ -4,18 +4,13 @@ import "./weeklymenu.scss";
 import craft from "../../assets/weeklyMenu/craft.png";
 
 function WeeklyMenu() {
-  const [planType, setPlanType] = useState("Meal Kits");
-  const [servingsPerMeal, setServingsPerMeal] = useState(2);
-  const [mealsPerWeek, setMealsPerWeek] = useState(3);
-  const [pricePerServing, _setPricePerServing] = useState(4.37);
-  const shippingCost = 0;
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
 
-
-  const calculateTotal = () => {
-    return (servingsPerMeal * mealsPerWeek * pricePerServing).toFixed(2);
-  };
+  function handleClick() {
+    window.location.href = '/mealplans';
+  }
+  
 
 
   const mealOptions = [
@@ -131,7 +126,7 @@ function WeeklyMenu() {
           </p>
           <div className="week-and-plans">
             <h2 className="week-title">Week of April 1st</h2>
-            <button className="see-plans-button">SEE PLANS</button>
+            <button onClick={handleClick}  className="see-plans-button">SEE PLANS</button>
           </div>
         </header>
 
@@ -170,88 +165,7 @@ function WeeklyMenu() {
         </div>
       </div>
 
-      {/* Start of the Build your Plan */}
-      <div className="meal-plans">
-        <div className="plan-container">
-          <div className="left-column">
-            <div className="header">Build your plan</div>
-            <div className="plan-type-selector">
-              <button
-                className={`plan-type-option ${
-                  planType === "Meal Kits" ? "selected" : ""
-                }`}
-                onClick={() => setPlanType("Meal Kits")}
-              >
-                Meal Kits
-              </button>
-              <button
-                className={`plan-type-option ${
-                  planType === "Prepared & Ready" ? "selected" : ""
-                }`}
-                onClick={() => setPlanType("Prepared & Ready")}
-              >
-                Prepared & Ready
-              </button>
-            </div>
-            <div className="description">
-              Ingredients and easy-to-follow recipes for home-cooked meals
-            </div>
-          </div>
-          <div className="right-column">
-            <div className="selectors">
-              <div className="servings-selector">
-                <label>Servings per meal</label>
-                <div className="buttons-row">
-                  {[2, 4].map((number) => (
-                    <button
-                      key={number}
-                      className={`selector-button ${
-                        servingsPerMeal === number ? "active" : ""
-                      }`}
-                      onClick={() => setServingsPerMeal(number)}
-                    >
-                      {number}
-                    </button>
-                  ))}
-                </div>
-              </div>
-              <div className="meals-selector">
-                <label>Meals per week</label>
-                <div className="buttons-row">
-                  {[2, 3, 4, 5].map((number) => (
-                    <button
-                      key={number}
-                      className={`selector-button ${
-                        mealsPerWeek === number ? "active" : ""
-                      }`}
-                      onClick={() => setMealsPerWeek(number)}
-                    >
-                      {number}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            </div>
-            <div className="price-display">
-              <div className="price-per-serving">
-                {`$${pricePerServing.toFixed(2)} per serving`}
-              </div>
-              <div className="shipping">
-                {shippingCost === 0 ? "FREE" : `$${shippingCost}`} shipping
-              </div>
-              <div className="total-price">{`$${calculateTotal()} total`}</div>
-              <div className="discount-note">
-                Enjoy 65% off the first five weeks of your new subscription.
-              </div>
-            </div>
-          </div>
-        </div>
-        <button className="continue-button">CONTINUE</button>
-        <div className="cancellation-note">
-          Skip, pause, or cancel at any time.
-        </div>
-      </div>
-
+ 
       {/* FAQ Section */}
       <section className="faq-section">
       <div className="container">
