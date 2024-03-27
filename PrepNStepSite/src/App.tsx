@@ -11,9 +11,9 @@ import WeeklyMenu from "./pages/WeeklyMenu/WeeklyMenu";
 import MealPlans from "./pages/MealPlans/MealPlans";
 import Workout from "./pages/Workout/Workout";
 import Blog from "./pages/Blog/Blog";
-import MuscleGain from "./components/NavbarMealPlans/MuscleGain"
-import Cutting from "./components/NavbarMealPlans/Cutting"
-import ChefsChoice from "./components/NavbarMealPlans/ChefsChoice"
+import MuscleGain from "./components/NavbarWeeklyMenu/MuscleGain"
+import Cutting from "./components/NavbarWeeklyMenu/Cutting"
+import ChefsChoice from "./components/NavbarWeeklyMenu/ChefsChoice"
 
 
 function App() {
