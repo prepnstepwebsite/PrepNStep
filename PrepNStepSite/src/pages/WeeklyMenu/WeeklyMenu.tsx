@@ -1,3 +1,5 @@
+//WeeklyMenu.tsx
+
 import { useState, useRef } from "react";
 import "./weeklymenu.scss";
 
@@ -6,12 +8,9 @@ import craft from "../../assets/weeklyMenu/craft.png";
 function WeeklyMenu() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
-
   function handleClick() {
-    window.location.href = '/mealplans';
+    window.location.href = "/mealplans";
   }
-  
-
 
   const mealOptions = [
     {
@@ -78,23 +77,34 @@ function WeeklyMenu() {
       question: "How are the ingredients for the meals sourced?",
       answer:
         "We prioritize sustainability and quality in our sourcing. Ingredients are organically grown and sourced from local farms whenever possible, ensuring that you receive the freshest produce while also supporting local agriculture.",
-    }
+    },
   ];
 
-
-  const faqRefs = useRef<(HTMLDivElement | null)[]>(new Array(faqItems.length).fill(null));
-
+  const faqRefs = useRef<(HTMLDivElement | null)[]>(
+    new Array(faqItems.length).fill(null)
+  );
 
   const toggleFAQ = (index: number) => {
     const current = faqRefs.current[index];
     if (!current) return;
 
     setActiveIndex(activeIndex === index ? null : index);
-    current.style.maxHeight = activeIndex === index ? '0px' : `${current.scrollHeight}px`;
+    current.style.maxHeight =
+      activeIndex === index ? "0px" : `${current.scrollHeight}px`;
   };
 
   return (
     <>
+      {/* Beginning of Header */}
+      <div className="header-container">
+        <div className="header-content">
+          <h1 className="header-title">Meal Kits</h1>
+          <p className="header-subtitle">
+            An ever-changing mix of easy-to-follow recipes perfectly portioned
+            for two.
+          </p>
+        </div>
+      </div>
       {/* Begging of the navbar */}
       <div className="meal-kits-page">
         <header className="meal-kits-header">
@@ -119,14 +129,11 @@ function WeeklyMenu() {
             </ul>
           </nav>
 
-          <h1>Meal Kits</h1>
-          <p>
-            An ever-changing mix of easy-to-follow recipes perfectly portioned
-            for two.
-          </p>
           <div className="week-and-plans">
             <h2 className="week-title">Week of April 1st</h2>
-            <button onClick={handleClick}  className="see-plans-button">SEE PLANS</button>
+            <button onClick={handleClick} className="see-plans-button">
+              SEE PLANS
+            </button>
           </div>
         </header>
 
@@ -165,33 +172,32 @@ function WeeklyMenu() {
         </div>
       </div>
 
- 
       {/* FAQ Section */}
       <section className="faq-section">
-      <div className="container">
-        <div className="faq-title">
-          <h2>Frequently Asked Questions</h2>
-        </div>
-        <div className="faq-content">
-        {faqItems.map((item, index) => (
-          <div
-            className={`faq-item ${activeIndex === index ? "active" : ""}`}
-            key={index}
-            onClick={() => toggleFAQ(index)}
-          >
-            <div className="faq-question">{item.question}</div>
-            <div
-              className="faq-answer"
-              ref={(el) => faqRefs.current[index] = el}
-              // Remove the inline style for display
-            >
-              {item.answer}
-            </div>
+        <div className="container">
+          <div className="faq-title">
+            <h2>Frequently Asked Questions</h2>
           </div>
-        ))}
-      </div>
-      </div>
-    </section>
+          <div className="faq-content">
+            {faqItems.map((item, index) => (
+              <div
+                className={`faq-item ${activeIndex === index ? "active" : ""}`}
+                key={index}
+                onClick={() => toggleFAQ(index)}
+              >
+                <div className="faq-question">{item.question}</div>
+                <div
+                  className="faq-answer"
+                  ref={(el) => (faqRefs.current[index] = el)}
+                  // Remove the inline style for display
+                >
+                  {item.answer}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </>
   );
 }

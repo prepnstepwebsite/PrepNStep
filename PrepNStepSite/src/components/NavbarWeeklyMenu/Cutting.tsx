@@ -95,6 +95,16 @@ function MealPlans() {
 
   return (
     <>
+          {/* Beginning of Header */}
+          <div className="header-container">
+        <div className="header-content">
+          <h1 className="header-title">Cutting</h1>
+          <p className="header-subtitle">
+            An ever-changing mix of easy-to-follow recipes perfectly portioned
+            for two.
+          </p>
+        </div>
+      </div>
     {/* Begging of the navbar */}
       <div className="meal-kits-page">
         <header className="meal-kits-header">
@@ -118,12 +128,6 @@ function MealPlans() {
               </li>
             </ul>
           </nav>
-
-          <h1>Wellness</h1>
-          <p>
-            An ever-changing mix of easy-to-follow recipes perfectly portioned
-            for one.
-          </p>
           <div className="week-and-plans">
             <h2 className="week-title">Week of April 1st</h2>
             <button className="see-plans-button">SEE PLANS</button>

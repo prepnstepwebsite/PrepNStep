@@ -1,0 +1,31 @@
+//workout.scss
+
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap");
+
+//----------------- Beginning of Header -----------------
+.header-container {
+  background-color: #f8f8f8; // A light background color for the header
+  padding: 1px 0; // Padding for top and bottom
+  text-align: center; // Center align the content
+
+  .header-content {
+    max-width: 600px; // Max width for the content
+    margin: 0 auto; // Center the content block
+  }
+
+  .header-title {
+    font-family: Chronicle Deck, Times, serif;
+    font-size: 2.5rem; // Large font size for the main title
+    font-weight: 600; // Font weight for the title
+    color: #333; // Dark color for contrast
+    margin-bottom: 8px; // Space between title and subtitle
+  }
+
+  .header-subtitle {
+    font-family: var(--Playfair);
+    font-size: 1rem; // Smaller font size for the subtitle
+    color: #666; // A lighter color for the subtitle
+  }
+}
+
+//----------------- End of Header -----------------

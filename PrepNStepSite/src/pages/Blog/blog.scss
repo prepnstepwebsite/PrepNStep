@@ -1,0 +1,263 @@
+//blog.scss
+
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap");
+
+//----------------- Beginning of PopUp -----------------
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.75
+  ); // Adjust the color and opacity for the overlay
+  display: flex;
+  justify-content: center;
+  align-items: center; // This centers the modal vertically as well as horizontally.
+}
+
+.modal-close-x {
+  position: absolute;
+  top: 16px; // Adds spacing from the top
+  right: 16px; // Adds spacing from the right
+  background: transparent;
+  border: none;
+  font-size: 1.5em; // Adjust the size of the 'X' as needed
+  cursor: pointer;
+  color: #333; // Set a color for the 'X'
+
+  // You can add more styling such as hover effects
+  &:hover {
+    color: #666; // Darken the 'X' on hover for feedback
+  }
+}
+
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  height: 60%;
+  max-width: 960px;
+  right: auto;
+  bottom: auto;
+  marginright: "-50%";
+  transform: translate(-50%, -50%);
+  border: 1px solid #ccc;
+  background: #fff;
+  overflow: auto;
+  webkitoverflowscrolling: "touch";
+  borderradius: "4px";
+  outline: "none";
+  padding: "20px";
+  display: flex;
+}
+
+.newsletter-modal {
+  display: flex;
+  flex-direction: row; // Aligns children (image and form) in a row
+  width: 100%; // Ensures the inner container takes the full width of the modal
+  height: 100%;
+  max-height: 600px; // Optional: if you want to limit the height of the modal
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); // Optional: adds a shadow for better distinction
+  overflow: hidden; // Ensures the content fits within the border-radius
+  background: #fff; // Set the background color of the modal content area to white
+}
+
+.newsletter-image-side {
+  flex: 1;
+  // Add your background image here
+  background: url("../../assets/images/PopUpLeft.jpg") no-repeat center center;
+  background-size: cover;
+  background-position: 70% center;
+}
+
+.newsletter-form-side {
+  flex: 1.5;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h2 {
+    margin: 0 0 10px 0;
+  }
+
+  p {
+    margin: 0 0 20px 0;
+  }
+
+  form {
+    width: calc(100% - 40px); // Adjusting width to account for padding
+    max-width: 500px; // Max width of the form, can adjust as needed
+
+    input {
+      width: 100%; // Ensures the input width is the full width of its parent
+      padding: 10px;
+      margin-bottom: 10px;
+      box-sizing: border-box; // Includes padding and border in the element's total width
+    }
+
+    button {
+      margin-bottom: 10px; // Adds space between the button and the input field
+      width: 100%;
+      padding: 10px;
+      background: black;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  }
+
+  .modal-close-button {
+    background: none;
+    border: none;
+    color: grey;
+    cursor: pointer;
+    align-self: center;
+  }
+
+  .newsletter-image-side,
+  .newsletter-form-side {
+    // Take up half of the container
+    flex: 1;
+  }
+}
+
+//----------------- Beginning of PopUp -----------------
+
+//----------------- Beginning of Header -----------------
+.header-container {
+  background-color: #f8f8f8; // A light background color for the header
+  padding: 1px 0; // Padding for top and bottom
+  text-align: center; // Center align the content
+
+  .header-content {
+    max-width: 600px; // Max width for the content
+    margin: 0 auto; // Center the content block
+  }
+
+  .header-title {
+    font-family: Chronicle Deck, Times, serif;
+    font-size: 2.5rem; // Large font size for the main title
+    font-weight: 600; // Font weight for the title
+    color: #333; // Dark color for contrast
+    margin-bottom: 8px; // Space between title and subtitle
+  }
+
+  .header-subtitle {
+    font-family: var(--Playfair);
+    font-size: 1rem; // Smaller font size for the subtitle
+    color: #666; // A lighter color for the subtitle
+  }
+}
+
+//----------------- End of Header -----------------
+
+//----------------- Beginning of Articles -----------------
+
+.articles-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); // Start with three columns
+  gap: 16px; // Spacing between the cards
+  padding: 16px; // Padding around the grid
+  max-width: 1400px; // Maximum width of the container
+  margin: 0 auto; // Center the container on the page
+}
+
+// Media query for medium screens, 2 columns
+@media (max-width: 1024px) {
+  .articles-container {
+    grid-template-columns: repeat(2, 1fr); // 2 columns for medium screens
+  }
+}
+
+// Media query for small screens, 1 column
+@media (max-width: 768px) {
+  .articles-container {
+    grid-template-columns: 1fr; // 1 column for small screens
+  }
+}
+
+.blog-card {
+  background-color: #ffffff; // White background for the card
+  margin: 16px; // Margin for spacing around the card
+  overflow: hidden; // Ensures the image doesn't overflow the card's round corners
+
+  .blog-image {
+    width: 100%; // Image should fill the container
+    height: auto; // Maintain aspect ratio
+    display: block; // Ensures there are no gaps below the image
+    object-fit: cover; // Ensures the image covers the container
+    aspect-ratio: 16 / 9; // Gives the image a rectangular aspect ratio
+  }
+  .blog-image-container {
+    position: relative;
+    width: 100%; // Ensure the container takes the full width of the card
+    height: auto; // Adjust height automatically based on the image
+    overflow: hidden; // Hide anything that goes outside the container
+  }
+  .blog-image-icon {
+    position: absolute;
+    bottom: 10px; // Adjust to desired space from the bottom edge
+    right: 10px; // Adjust to desired space from the right edge
+    background-color: #2b2b2b; // Icon background color - you can adjust this
+    color: #fff; // Icon color - you can adjust this
+    width: 50px; // Size of the icon container square
+    height: 50px; // Size of the icon container square
+    display: flex; // Use flexbox for centering
+    justify-content: center; // Center horizontally in the flex container
+    align-items: center; // Center vertically in the flex container
+  }
+
+  .blog-info {
+    padding: 16px; // Padding inside the card
+    text-align: left; // Aligns the text to the left
+
+    .blog-date {
+      font-family: "Poppins", sans-serif;
+      font-weight: 300;
+      color: #222327; // Light color for the date
+      margin-bottom: 8px; // Spacing between date and title
+    }
+
+    .blog-title {
+      font-family: var(--Playfair);
+      font-size: 1.65rem; // Larger font size for the title
+      font-weight: 500;
+      color: #333; // Dark color for the title
+      margin-bottom: 8px; // Space between title and description
+    }
+
+    .blog-description {
+      font-family: "Poppins", sans-serif;
+      color: #222327; // Medium darkness for readability
+      font-size: 1.1rem; // Standard font size for the description
+      font-weight: 300;
+      opacity: 0.9;
+      margin-bottom: 16px; // Space between description and button
+    }
+
+    .read-more-button {
+      font-size: 1.1em;
+      background-color: #3c393d; // Dark button for contrast
+      color: #ffffff; // White text color for the button
+      border: none; // No border for a cleaner look
+      padding: 8px 16px; // Padding for button size
+      cursor: pointer; // Changes the cursor to indicate it's clickable
+      transition: background-color 0.3s ease; // Smooth transition for hover effect
+
+      &:hover {
+        background-color: #555; // Slightly lighter on hover for feedback
+      }
+    }
+  }
+}
+
+//----------------- End of Articles -----------------
