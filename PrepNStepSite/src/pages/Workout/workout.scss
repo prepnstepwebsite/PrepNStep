@@ -29,3 +29,103 @@
 }
 
 //----------------- End of Header -----------------
+
+//----------------- Beginning of Calender -----------------
+
+// Define your color palette and other style variables
+$background-color: #333;
+$text-color: #fff;
+$today-color: #666;
+$button-spacing: 25em; // Spacing for the prev and next buttons
+
+// Base calendar styles
+.calendar-header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center; // Center the header
+  background-color: $background-color;
+  position: relative; // Needed to position the nav-buttons absolutely
+
+  .nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); // Center vertically
+    background: none;
+    border: none;
+    color: $text-color;
+    font-size: 1.5em;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &.prev {
+      left: $button-spacing; // Button close to the left edge
+    }
+
+    &.next {
+      right: $button-spacing; // Button close to the right edge
+    }
+  }
+
+  .calendar-header {
+    color: $text-color;
+    font-size: 1.2em;
+    padding: 1em;
+  }
+}
+
+.today-button {
+  display: block; // Take the full width available
+  margin: 1em auto; // Center horizontally
+  background-color: transparent;
+  border: none;
+  color: $text-color;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  background-color: $background-color;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.calendar-container {
+  background-color: $background-color;
+  color: $text-color;
+
+  .week {
+    display: flex;
+    justify-content: space-between;
+
+    .day {
+      flex: 1;
+      text-align: center;
+      padding: 1em 0;
+
+      .weekday {
+        color: $text-color;
+        // You can add more styles if necessary
+      }
+
+      .day-number {
+        color: $text-color;
+        font-weight: bold; // Bold the day number
+        // You can add more styles if necessary
+      }
+
+      &.today {
+        .weekday{
+          color: green;
+        }
+        .day-number {
+          color: green;
+          display: inline-block; // Allows border-radius to take effect
+        }
+      }
+    }
+  }
+}
+
+//----------------- End of Calender -----------------
