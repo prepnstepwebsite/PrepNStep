@@ -41,49 +41,72 @@ $day-column-width: 14.28%; // This ensures equal width for 7 days
 
 // Base calendar styles
 .calendar-header-container {
+  background: none;
   display: flex;
-  justify-content: space-between; // This will ensure space between items if there's enough room
+  justify-content: center; // Always center the content
   align-items: center;
   padding: 1em;
-  text-align: center;
-  min-width: 0; // Ensure that the container can shrink to fit its contents
-
-  .month-year-header{
-    position: sticky;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
+  position: relative; // Allows absolute positioning relative to this container
+  max-width: 500px; // Prevents the container from stretching too far on larger screens
+  margin: auto; // Centers the entire container within its parent
 
   .nav-button {
-    // Adjust padding if necessary, but remove absolute positioning
-    padding: 0.5em 1em;
+    background: none; // No background
+    border: none; // No border
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     cursor: pointer;
-
-    &:hover {
-      opacity: 0.8;
+    padding: 10px; // Padding around the arrow for clickability
+  
+    &.prev {
+      left: 10px; // Adjust the position as necessary
     }
+  
+    &.next {
+      right: 10px; // Adjust the position as necessary
+    }
+  
+    &:hover {
+      color: #007bff; // Change color on hover to indicate interactiveness
+    }
+  
+    &:focus {
+      outline: none; // Removes the focus outline to maintain a clean look
+    }
+  
+    &::before {
+      content: ''; // Use an icon font like Font Awesome here, or keep it empty if using text content
+      display: block;
+      font-size: 1.5rem; // Adjust size as needed
+    }
+  
+    font-size: 1rem; // Adjust the font size as necessary
+    line-height: 1; // Ensure the content is vertically centered
   }
 
-  .month-year-header{
+  .month-year-header {
+    // No changes needed here if you're happy with the current styles
     font-size: x-large;
     font-weight: bold;
+    position: relative; // Ensures this content is above the absolutely positioned buttons
+    z-index: 1; // Raises the z-index so it's above the buttons
   }
+}
 
-  .nav-button {
-    background: none;
-    border: none;
-    margin: 0; 
-    padding: 0;
-    color: $text-color;
-    font-size: 1.5em;
-    cursor: pointer;
-    padding: 0 $button-spacing; // Apply spacing as padding for better control
+@media (max-width: 768px) {
+  .calendar-header-container {
+    .nav-button {
+      &.prev {
+        left: 70px; // Move the previous button closer to the header
+      }
 
-    &:hover {
-      opacity: 0.8;
+      &.next {
+        right: 70px; // Move the next button closer to the header
+      }
     }
   }
+}
 
   .calendar-header {
     flex: none;
@@ -95,7 +118,7 @@ $day-column-width: 14.28%; // This ensures equal width for 7 days
     flex-grow: 1; // Allows the header to fill the space
     text-align: center; // Centers the header text
   }
-}
+
 
 .today-button-container {
   text-align: center; // Centers the "Today" button if the container is full width
