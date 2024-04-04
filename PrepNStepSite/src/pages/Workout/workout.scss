@@ -33,95 +33,133 @@
 //----------------- Beginning of Calender -----------------
 
 // Define your color palette and other style variables
-$background-color: #333;
-$text-color: #fff;
-$today-color: #666;
-$button-spacing: 25em; // Spacing for the prev and next buttons
+$background-color: #ffffff;
+$text-color: black;
+$today-color: rgb(201, 201, 201);
+$button-spacing: 13em; // Reduced spacing for a tighter layout
+$day-column-width: 14.28%; // This ensures equal width for 7 days
 
 // Base calendar styles
 .calendar-header-container {
   display: flex;
+  justify-content: space-between; // This will ensure space between items if there's enough room
   align-items: center;
-  justify-content: center; // Center the header
-  background-color: $background-color;
-  position: relative; // Needed to position the nav-buttons absolutely
+  padding: 1em;
+  text-align: center;
+  min-width: 0; // Ensure that the container can shrink to fit its contents
+
+  .month-year-header{
+    position: sticky;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 
   .nav-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%); // Center vertically
-    background: none;
-    border: none;
-    color: $text-color;
-    font-size: 1.5em;
+    // Adjust padding if necessary, but remove absolute positioning
+    padding: 0.5em 1em;
     cursor: pointer;
 
     &:hover {
       opacity: 0.8;
     }
+  }
 
-    &.prev {
-      left: $button-spacing; // Button close to the left edge
-    }
+  .month-year-header{
+    font-size: x-large;
+    font-weight: bold;
+  }
 
-    &.next {
-      right: $button-spacing; // Button close to the right edge
+  .nav-button {
+    background: none;
+    border: none;
+    margin: 0; 
+    padding: 0;
+    color: $text-color;
+    font-size: 1.5em;
+    cursor: pointer;
+    padding: 0 $button-spacing; // Apply spacing as padding for better control
+
+    &:hover {
+      opacity: 0.8;
     }
   }
 
   .calendar-header {
+    flex: none;
+    margin: 0 1em;
     color: $text-color;
     font-size: 1.2em;
+    font-weight: bold;
     padding: 1em;
+    flex-grow: 1; // Allows the header to fill the space
+    text-align: center; // Centers the header text
   }
 }
 
-.today-button {
-  display: block; // Take the full width available
-  margin: 1em auto; // Center horizontally
-  background-color: transparent;
-  border: none;
-  color: $text-color;
-  padding: 0.5em 1em;
-  cursor: pointer;
-  background-color: $background-color;
+.today-button-container {
+  text-align: center; // Centers the "Today" button if the container is full width
+  padding: 0.5em; // Gives some space around the button
+  
 
-  &:hover {
-    opacity: 0.8;
+  .today-button {
+    background-color: $background-color; // White background
+    color: #25839B; // Text color you desire, seems like a blue
+    padding: 10px 20px; // Padding inside the button
+    border: 2px solid #25839B; // Solid border with the same color as the text
+    border-radius: 25px; // Fully rounded corners for pill shape
+    font-weight: bold; // Bold text
+    font-size: .7rem; // Font size, adjust as needed
+    text-transform: uppercase; // Uppercase text
+    cursor: pointer;
+    text-align: center;
+    display: inline-block; // Allows the use of text-align
+    margin: 0 auto; // Center button if within a block
+    transition: background-color 0.3s, color 0.3s; // Smooth transition for hover effect
+  
+    &:hover {
+      background-color: #15505F; // Background color for hover
+      color: #ffffff; // Text color for hover
+    }
   }
 }
 
 .calendar-container {
+  position: relative;
+  background-color: $background-color;
+  color: $text-color;
   background-color: $background-color;
   color: $text-color;
 
   .week {
     display: flex;
-    justify-content: space-between;
 
-    .day {
-      flex: 1;
+    .day-column {
+      width: $day-column-width; // Set width to distribute space evenly
       text-align: center;
       padding: 1em 0;
 
-      .weekday {
-        color: $text-color;
-        // You can add more styles if necessary
+      &.today,
+      &.selected {
+        background-color: $today-color;
+        border-radius: 4px; // Rounded corners for today and selected day
       }
 
-      .day-number {
+      .date-header {
         color: $text-color;
-        font-weight: bold; // Bold the day number
-        // You can add more styles if necessary
-      }
+        display: flex;
+        flex-direction: column;
+        align-items: center; // Center the day of week and number
+        font-size: 1.1em;
 
-      &.today {
-        .weekday{
-          color: green;
+        .weekday {
+          color: $text-color;
         }
+
         .day-number {
-          color: green;
-          display: inline-block; // Allows border-radius to take effect
+          color: $text-color;
+          font-weight: bold;
+          margin: 0.5em 0; // Provide some space between day and date
         }
       }
     }
@@ -129,3 +167,147 @@ $button-spacing: 25em; // Spacing for the prev and next buttons
 }
 
 //----------------- End of Calender -----------------
+
+
+//----------------- Beginning of Trainer -----------------
+
+.trainers-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); // Creates a 4-column layout
+  gap: 1em; // Spacing between cards
+  padding: 1em; // Padding around the entire grid
+  box-sizing: border-box; // Ensures padding doesn't affect the total width
+
+  @media (max-width: 1200px) {
+    // Adjusts to a 2-column layout for smaller screens
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    // Adjusts to a single column for mobile screens
+    grid-template-columns: 1fr;
+  }
+}
+
+.trainer-schedule {
+  display: flex;
+  flex-direction: column; // Arrange content vertically
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  background-color: $background-color;
+
+  .trainer-top {
+    display: flex;
+    flex-direction: row; // Arrange image and content side by side
+    align-items: center;
+    width: 100%;
+
+    .trainer-image-container {
+      position: relative; // To control the aspect ratio
+      width: 100%; // Full width of the container
+      padding-top: 250px; // This sets the height relative to the width, adjust the percentage to change the aspect ratio
+
+      .trainer-pic {
+        position: absolute; // Absolutely position the image to fill the container
+        top: 5px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding-left: 5px; // Note that padding within an absolute element doesn't work as expected. Consider using margin if needed.
+        object-fit: cover; // Cover the area while maintaining aspect ratio
+        object-position: center; // Center the image within the container
+        border-top-left-radius: 8px; // Round the top-left corner of the image
+        border-top-right-radius: 8px; // Round the top-right corner of the image
+        border-bottom-left-radius: 8px; // Round the bottom-left corner of the image
+        border-bottom-right-radius: 8px; // Round the bottom-right corner of the image
+      }
+    }
+
+    .trainer-info {
+      flex-basis: 50%; // Allocate 50% of the width to the content
+      padding: 1em;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .trainer-name {
+        text-align: center;
+        color: $text-color;
+        font-size: 1.4em;
+        font-weight: bold;
+        margin: 0;
+      }
+
+      .trainer-bio {
+        font-size: 0.9em;
+        color: #666;
+      }
+    }
+  }
+
+  .trainer-bottom {
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+
+    .classes {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1em;
+      // Fixed height to accommodate the largest expected content
+      min-height: 100px; // Adjust as needed to fit your content
+      padding: 0 16px; // Consistent padding
+
+      .class {
+        text-align: center;
+        margin-bottom: 0.5rem; // Fixed margin for uniform spacing
+
+        .class-title {
+          color: $text-color;
+          font-weight: bold;
+          font-size: 1.2em;
+          height: 1.5rem; // Fixed height
+          overflow: hidden; // Hide overflow
+        }
+
+        .class-time {
+          font-size: 0.8rem;
+          color: #666;
+        }
+
+        .class-desc {
+          font-size: 0.9em;
+          color: $text-color;
+        }
+      }
+    }
+
+    .book-button {
+      background-color: #25839B; // Blue background
+      color: #ffffff; // White text
+      padding: 10px 20px; // Padding inside the button
+      border: 2px solid #25839B; // Solid border with the same color as the background
+      border-radius: 25px; // Fully rounded corners for pill shape
+      font-weight: bold; // Bold text
+      font-size: .7rem; // Font size, adjust as needed
+      text-transform: uppercase; // Uppercase text
+      cursor: pointer;
+      text-align: center;
+      display: inline-block; // Allows the use of text-align
+      margin: 0 auto; // Center button if within a block
+      transition: background-color 0.3s, color 0.3s; // Smooth transition for hover effect
+      text-decoration: none; // Removes underline from text if it's an <a> element
+    
+      &:hover {
+        background-color: darken(#15505F, 10%); // Slightly darker blue on hover
+        border-color: darken(#25839B, 10%); // Ensure the border color also darkens on hover
+        color: #ffffff; // Text remains white on hover
+      }
+    }
+    
+  }
+}
+
+//----------------- End of Trainer -----------------
