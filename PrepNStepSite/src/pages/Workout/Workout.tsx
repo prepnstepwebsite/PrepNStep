@@ -6,7 +6,7 @@ import "./workout.scss";
 
 function Workout() {
   // State to store the current date and the displayed week's start date
-  const [currentDate, setCurrentDate] = useState(new Date());
+  const [_currentDate, setCurrentDate] = useState(new Date());
   const [displayedWeekStartDate, setDisplayedWeekStartDate] = useState(
     new Date()
   );
