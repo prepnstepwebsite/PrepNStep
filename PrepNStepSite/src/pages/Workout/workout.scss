@@ -3,6 +3,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap");
 
 //----------------- Beginning of Header -----------------
+
 .header-container {
   background-color: #f8f8f8; // A light background color for the header
   padding: 1px 0; // Padding for top and bottom
@@ -58,29 +59,29 @@ $day-column-width: 14.28%; // This ensures equal width for 7 days
     transform: translateY(-50%);
     cursor: pointer;
     padding: 10px; // Padding around the arrow for clickability
-  
+
     &.prev {
       left: 10px; // Adjust the position as necessary
     }
-  
+
     &.next {
       right: 10px; // Adjust the position as necessary
     }
-  
+
     &:hover {
       color: #007bff; // Change color on hover to indicate interactiveness
     }
-  
+
     &:focus {
       outline: none; // Removes the focus outline to maintain a clean look
     }
-  
+
     &::before {
-      content: ''; // Use an icon font like Font Awesome here, or keep it empty if using text content
+      content: ""; // Use an icon font like Font Awesome here, or keep it empty if using text content
       display: block;
       font-size: 1.5rem; // Adjust size as needed
     }
-  
+
     font-size: 1rem; // Adjust the font size as necessary
     line-height: 1; // Ensure the content is vertically centered
   }
@@ -108,40 +109,38 @@ $day-column-width: 14.28%; // This ensures equal width for 7 days
   }
 }
 
-  .calendar-header {
-    flex: none;
-    margin: 0 1em;
-    color: $text-color;
-    font-size: 1.2em;
-    font-weight: bold;
-    padding: 1em;
-    flex-grow: 1; // Allows the header to fill the space
-    text-align: center; // Centers the header text
-  }
-
+.calendar-header {
+  flex: none;
+  margin: 0 1em;
+  color: $text-color;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 1em;
+  flex-grow: 1; // Allows the header to fill the space
+  text-align: center; // Centers the header text
+}
 
 .today-button-container {
   text-align: center; // Centers the "Today" button if the container is full width
   padding: 0.5em; // Gives some space around the button
-  
 
   .today-button {
     background-color: $background-color; // White background
-    color: #25839B; // Text color you desire, seems like a blue
+    color: #25839b; // Text color you desire, seems like a blue
     padding: 10px 20px; // Padding inside the button
-    border: 2px solid #25839B; // Solid border with the same color as the text
+    border: 2px solid #25839b; // Solid border with the same color as the text
     border-radius: 25px; // Fully rounded corners for pill shape
     font-weight: bold; // Bold text
-    font-size: .7rem; // Font size, adjust as needed
+    font-size: 0.7rem; // Font size, adjust as needed
     text-transform: uppercase; // Uppercase text
     cursor: pointer;
     text-align: center;
     display: inline-block; // Allows the use of text-align
     margin: 0 auto; // Center button if within a block
     transition: background-color 0.3s, color 0.3s; // Smooth transition for hover effect
-  
+
     &:hover {
-      background-color: #15505F; // Background color for hover
+      background-color: #15505f; // Background color for hover
       color: #ffffff; // Text color for hover
     }
   }
@@ -161,6 +160,7 @@ $day-column-width: 14.28%; // This ensures equal width for 7 days
       width: $day-column-width; // Set width to distribute space evenly
       text-align: center;
       padding: 1em 0;
+      cursor: pointer;
 
       &.today,
       &.selected {
@@ -191,6 +191,15 @@ $day-column-width: 14.28%; // This ensures equal width for 7 days
 
 //----------------- End of Calender -----------------
 
+.black-line-top{
+  height: .5px; // Thickness of the line
+  background-color: black; // Line color
+  margin-top: 20px; // Space from the content above
+  margin-bottom: 20px; // Space from the page selector below
+  margin-left: 55px;
+  margin-right: 55px;
+  
+}
 
 //----------------- Beginning of Trainer -----------------
 
@@ -200,6 +209,8 @@ $day-column-width: 14.28%; // This ensures equal width for 7 days
   gap: 1em; // Spacing between cards
   padding: 1em; // Padding around the entire grid
   box-sizing: border-box; // Ensures padding doesn't affect the total width
+
+  
 
   @media (max-width: 1200px) {
     // Adjusts to a 2-column layout for smaller screens
@@ -308,13 +319,13 @@ $day-column-width: 14.28%; // This ensures equal width for 7 days
     }
 
     .book-button {
-      background-color: #25839B; // Blue background
+      background-color: #25839b; // Blue background
       color: #ffffff; // White text
       padding: 10px 20px; // Padding inside the button
-      border: 2px solid #25839B; // Solid border with the same color as the background
+      border: 2px solid #25839b; // Solid border with the same color as the background
       border-radius: 25px; // Fully rounded corners for pill shape
       font-weight: bold; // Bold text
-      font-size: .7rem; // Font size, adjust as needed
+      font-size: 0.7rem; // Font size, adjust as needed
       text-transform: uppercase; // Uppercase text
       cursor: pointer;
       text-align: center;
@@ -322,15 +333,73 @@ $day-column-width: 14.28%; // This ensures equal width for 7 days
       margin: 0 auto; // Center button if within a block
       transition: background-color 0.3s, color 0.3s; // Smooth transition for hover effect
       text-decoration: none; // Removes underline from text if it's an <a> element
-    
+
       &:hover {
-        background-color: darken(#15505F, 10%); // Slightly darker blue on hover
-        border-color: darken(#25839B, 10%); // Ensure the border color also darkens on hover
+        background-color: darken(#15505f, 10%); // Slightly darker blue on hover
+        border-color: darken(
+          #25839b,
+          10%
+        ); // Ensure the border color also darkens on hover
         color: #ffffff; // Text remains white on hover
       }
     }
-    
   }
 }
 
 //----------------- End of Trainer -----------------
+
+//----------------- Beginning of Page Nav -----------------
+
+
+.black-line {
+  height: .5px; // Thickness of the line
+  background-color: black; // Line color
+  margin-top: 40px; // Space from the content above
+  margin-bottom: 20px; // Space from the page selector below
+  margin-left: 55px;
+  margin-right: 55px;
+  
+}
+
+.page-selector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px; // Space from the trainer cards
+  margin-bottom: 20px;
+
+  .page-nav {
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    font-weight: bold;
+    color: #25839b;
+    margin: 0 8%;
+    &:hover {
+      text-decoration: underline;
+    }
+
+  }
+
+  .page-number {
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin: 0 5px;
+    padding: 5px 10px;
+    border-radius: 50%;
+    transition: background-color 0.3s, color 0.3s;
+
+    &.active {
+      color: #25839b;
+    }
+
+    &:hover:not(.active) {
+      background-color: #e6e6e6;
+    }
+  }
+}
+
+
+//----------------- End of Page Nav -----------------

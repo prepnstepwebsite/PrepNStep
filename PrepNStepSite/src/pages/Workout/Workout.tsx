@@ -4,6 +4,9 @@ import { useState, useEffect } from "react";
 import TrainerDays from "./WorkoutData";
 import "./workout.scss";
 
+import ContactImage from "../../assets/images/FitnessMatch.jpg";
+import FormImage from "../../assets/images/FitnessForm.jpg";
+
 function Workout() {
   // State to store the current date and the displayed week's start date
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -34,33 +37,34 @@ function Workout() {
   const getMonthYear = (startDate: Date): string => {
     const endDate = new Date(startDate);
     endDate.setDate(startDate.getDate() + 6); // Last day of the displayed week
-  
+
     const startMonth = startDate.toLocaleDateString("en-US", { month: "long" });
     const endMonth = endDate.toLocaleDateString("en-US", { month: "long" });
     const year = startDate.getFullYear();
-  
+
     // If the months are different, format as "Month - Month Year", otherwise "Month Year"
-    return startMonth === endMonth ? `${startMonth} ${year}` : `${startMonth} - ${endMonth} ${year}`;
+    return startMonth === endMonth
+      ? `${startMonth} ${year}`
+      : `${startMonth} - ${endMonth} ${year}`;
   };
 
-// Function to move to the previous week
-const goToPrevWeek = () => {
-  setDisplayedWeekStartDate(prevDate => {
-    const newDate = new Date(prevDate);
-    newDate.setDate(newDate.getDate() - 7);
-    return newDate;
-  });
-};
+  // Function to move to the previous week
+  const goToPrevWeek = () => {
+    setDisplayedWeekStartDate((prevDate) => {
+      const newDate = new Date(prevDate);
+      newDate.setDate(newDate.getDate() - 7);
+      return newDate;
+    });
+  };
 
-// Function to move to the next week
-const goToNextWeek = () => {
-  setDisplayedWeekStartDate(prevDate => {
-    const newDate = new Date(prevDate);
-    newDate.setDate(newDate.getDate() + 7);
-    return newDate;
-  });
-};
-
+  // Function to move to the next week
+  const goToNextWeek = () => {
+    setDisplayedWeekStartDate((prevDate) => {
+      const newDate = new Date(prevDate);
+      newDate.setDate(newDate.getDate() + 7);
+      return newDate;
+    });
+  };
 
   // Function to reset to the current week and set selected day to today
   const goToCurrentWeek = () => {
@@ -117,7 +121,9 @@ const goToNextWeek = () => {
         <button className="nav-button prev" onClick={goToPrevWeek}>
           &lt;
         </button>
-        <div className="month-year-header">{getMonthYear(displayedWeekStartDate)}</div>
+        <div className="month-year-header">
+          {getMonthYear(displayedWeekStartDate)}
+        </div>
         <button className="nav-button next" onClick={goToNextWeek}>
           &gt;
         </button>
@@ -154,6 +160,9 @@ const goToNextWeek = () => {
             );
           })}
         </div>
+
+        <div className="black-line-top"></div>
+
         {selectedDay && (
           <div className="trainers-container">
             {getClassesForAllTrainers(
@@ -192,6 +201,23 @@ const goToNextWeek = () => {
           </div>
         )}
       </div>
+
+
+        <div className="black-line"></div>
+
+        {/* Page Selector */}
+        <div className="page-selector">
+          <button className="page-nav prev">PREV</button>
+          {[1, 2, 3, 4, 5].map((number) => (
+            <button
+              key={number}
+              className={`page-number ${number === 1 ? "active" : ""}`}
+            >
+              {number}
+            </button>
+          ))}
+          <button className="page-nav next">NEXT</button>
+        </div>
     </>
   );
 }

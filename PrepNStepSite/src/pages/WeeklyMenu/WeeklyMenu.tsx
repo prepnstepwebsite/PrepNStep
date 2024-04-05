@@ -198,6 +198,7 @@ function WeeklyMenu() {
           </div>
         </div>
       </section>
+
     </>
   );
 }

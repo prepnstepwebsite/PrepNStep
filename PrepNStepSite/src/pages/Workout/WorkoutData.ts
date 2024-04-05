@@ -4,6 +4,8 @@ import trainer1 from "../../assets/trainers/trainerRyan.jpg"
 import trainer2 from "../../assets/trainers/trainerMichael.jpg"
 import trainer3 from "../../assets/trainers/trainerMarcus.jpg"
 import trainer4 from "../../assets/trainers/trainerFiona.jpg"
+import trainer5 from "../../assets/trainers/trainerLuca.jpg"
+import trainer6 from "../../assets/trainers/trainerMark.jpg"
 
 interface TrainerClass {
   title: string;
@@ -33,7 +35,7 @@ const TrainerDays: Trainer[] = [
         {
           title: "Morning Yoga",
           description:
-            "Start your day with a relaxing yoga session to improve flexibility and calm your mind.",
+            "Start your day with a relaxing yoga session to improve flexibility, strength, and calm your mind.",
           time: "6:00 AM",
           duration: "1 hour",
         },
@@ -81,7 +83,7 @@ const TrainerDays: Trainer[] = [
         {
           title: "Morning Yoga",
           description:
-            "Start your day with a relaxing yoga session to improve flexibility and calm your mind.",
+            "Start your day with a relaxing yoga session to improve flexibility, strength,  and calm your mind.",
           time: "6:00 AM",
           duration: "1 hour",
         },
@@ -129,7 +131,7 @@ const TrainerDays: Trainer[] = [
         {
           title: "Morning Yoga",
           description:
-            "Start your day with a relaxing yoga session to improve flexibility and calm your mind.",
+            "Start your day with a relaxing yoga session to improve flexibility, strength,  and calm your mind.",
           time: "6:00 AM",
           duration: "1 hour",
         },
@@ -462,6 +464,228 @@ const TrainerDays: Trainer[] = [
           description: "Build muscle and endurance with this intense workout.",
           time: "6:00 PM",
           duration: "1 hour",
+        },
+      ],
+      Saturday: [
+        {
+          title: "Midweek Mobility",
+          description:
+            "Focus on increasing your range of motion and reducing muscle stiffness.",
+          time: "7:00 AM",
+          duration: "1 hour",
+        },
+        {
+          title: "Box Fit",
+          description:
+            "Challenge yourself with a boxing-inspired fitness class that emphasizes technique and stamina.",
+          time: "5:00 PM",
+          duration: "1 hour",
+        },
+      ],
+      Sunday: [
+        {
+          title: "Sunrise Stretch",
+          description:
+            "Wake up your body with gentle stretches that prepare you for the day ahead.",
+          time: "5:30 AM",
+          duration: "30 minutes",
+        },
+        {
+          title: "Evening Meditation",
+          description:
+            "Unwind with guided meditation and light yoga to end your day peacefully.",
+          time: "8:00 PM",
+          duration: "45 minutes",
+        },
+      ],
+    },
+  },
+  {
+    name: "Luccy Lee",
+    profilePic: trainer5,
+    bio: "Dedicated to promoting wellness through a balanced lifestyle, Luccy blends traditional fitness with innovative techniques to enhance mind-body connection. With knowldeg of the buda chakras, Luccy taps your portential to bettering yourslef for the furture self well being",
+    schedule: {
+      Monday: [
+        {
+          title: "Power Yoga",
+          description: "Strengthen your body and mind with an invigorating yoga session.",
+          time: "6:45 AM",
+          duration: "45 minutes",
+        },
+        {
+          title: "HIIT Blast",
+          description: "High Intensity Interval Training to kickstart your metabolism.",
+          time: "6:00 PM",
+          duration: "30 minutes",
+        },
+      ],
+      Tuesday: [
+        {
+          title: "Circuit Training",
+          description: "Circuit-based workout to target all muscle groups efficiently.",
+          time: "12:00 PM",
+          duration: "1 hour",
+        },
+        {
+          title: "Zen Meditation",
+          description: "A meditation session to bring peace and balance to your day.",
+          time: "7:30 PM",
+          duration: "30 minutes",
+        },
+      ],
+      Wednesday: [
+        {
+          title: "Pilates Core",
+          description: "Core-focused Pilates workout for a solid foundation.",
+          time: "8:00 AM",
+          duration: "1 hour",
+        },
+        {
+          title: "Kickboxing",
+          description: "Energetic kickboxing session to boost stamina and agility.",
+          time: "5:30 PM",
+          duration: "1 hour",
+        },
+      ],
+      Thursday: [
+        {
+          title: "Morning Stretch",
+          description: "Gentle stretching routine to wake up the body.",
+          time: "6:45 AM",
+          duration: "30 minutes",
+        },
+        {
+          title: "Aqua Aerobics",
+          description: "Low-impact water aerobics for resistance without the strain.",
+          time: "5:00 PM",
+          duration: "1 hour",
+        },
+      ],
+      Friday: [
+        {
+          title: "Balance and Flex",
+          description: "Improve your balance and flexibility with targeted exercises.",
+          time: "9:00 AM",
+          duration: "1 hour",
+        },
+        {
+          title: "Friday Night Zumba",
+          description: "Dance away the week's stress with Zumba.",
+          time: "6:30 PM",
+          duration: "1 hour",
+        },
+      ],
+      Saturday: [
+        {
+          title: "Trail Running Club",
+          description: "Join our group for a morning run through scenic trails.",
+          time: "7:00 AM",
+          duration: "Varies",
+        },
+        {
+          title: "Restorative Yoga",
+          description: "Unwind with a yoga session focused on restoration and relaxation.",
+          time: "4:00 PM",
+          duration: "1 hour",
+        },
+      ],
+      Sunday: [
+        {
+          title: "Spin and Sprint",
+          description: "High-energy cycling session to start your Sunday with vigor.",
+          time: "10:00 AM",
+          duration: "45 minutes",
+        },
+        {
+          title: "Evening Wind Down",
+          description: "End your weekend with a calming sequence of stretches and meditation.",
+          time: "8:00 PM",
+          duration: "45 minutes",
+        },
+      ],
+    },
+  },
+  {
+    name: "Mark Grayson",
+    profilePic: trainer6,
+    bio: "With an unwavering dedication to holistic well-being, he advocates for the seamless integration of functional fitness and nourishing nutrition. Central to his approach is the cultivation of harmony between mind and body.",
+    schedule: {
+      Monday: [
+        {
+          title: "Aerobic Dance",
+          description:
+            "Get your heart rate up with fun dance routines that will leave you feeling energized.",
+          time: "10:00 AM",
+          duration: "1 hour",
+        },
+        {
+          title: "Strength and Conditioning",
+          description: "Build muscle and endurance with this intense workout.",
+          time: "6:00 PM",
+          duration: "1 hour",
+        },
+      ],
+      Tuesday: [
+        {
+          title: "Aerobic Dance",
+          description:
+            "Get your heart rate up with fun dance routines that will leave you feeling energized.",
+          time: "10:00 AM",
+          duration: "1 hour",
+        },
+        {
+          title: "Strength and Conditioning",
+          description: "Build muscle and endurance with this intense workout.",
+          time: "6:00 PM",
+          duration: "1 hour",
+        },
+      ],
+      Wednesday: [
+        {
+          title: "Sunrise Stretch",
+          description:
+            "Wake up your body with gentle stretches that prepare you for the day ahead.",
+          time: "5:30 AM",
+          duration: "30 minutes",
+        },
+        {
+          title: "Evening Meditation",
+          description:
+            "Unwind with guided meditation and light yoga to end your day peacefully.",
+          time: "8:00 PM",
+          duration: "45 minutes",
+        },
+      ],
+      Thursday: [
+        {
+          title: "Midweek Mobility",
+          description:
+            "Focus on increasing your range of motion and reducing muscle stiffness.",
+          time: "7:00 AM",
+          duration: "1 hour",
+        },
+        {
+          title: "Box Fit",
+          description:
+            "Challenge yourself with a boxing-inspired fitness class that emphasizes technique and stamina.",
+          time: "5:00 PM",
+          duration: "1 hour",
+        },
+      ],
+      Friday: [
+        {
+          title: "Sunrise Stretch",
+          description:
+            "Wake up your body with gentle stretches that prepare you for the day ahead.",
+          time: "5:30 AM",
+          duration: "30 minutes",
+        },
+        {
+          title: "Evening Meditation",
+          description:
+            "Unwind with guided meditation and light yoga to end your day peacefully.",
+          time: "8:00 PM",
+          duration: "45 minutes",
         },
       ],
       Saturday: [

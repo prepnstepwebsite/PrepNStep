@@ -295,6 +295,8 @@
         color: #25839b;
       }
       .faq-answer {
+        font-family: "Poppins", sans-serif;
+        padding-top: 10px;
         overflow: hidden;
         transition: max-height 0.3s ease;
         max-height: 0; // Start with max-height 0
