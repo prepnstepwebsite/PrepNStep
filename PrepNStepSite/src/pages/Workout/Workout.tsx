@@ -4,9 +4,6 @@ import { useState, useEffect } from "react";
 import TrainerDays from "./WorkoutData";
 import "./workout.scss";
 
-import ContactImage from "../../assets/images/FitnessMatch.jpg";
-import FormImage from "../../assets/images/FitnessForm.jpg";
-
 function Workout() {
   // State to store the current date and the displayed week's start date
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -140,16 +137,13 @@ function Workout() {
       <div className="calendar-container">
         <div className="week">
           {daysOfWeek.map((date, index) => {
-            const isToday = isSameDay(date, currentDate);
             const isSelectedDay = isSameDay(date, selectedDay);
             const { weekday, day } = formatDate(date);
 
             return (
               <div
                 key={index}
-                className={`day-column ${isToday ? "today" : ""} ${
-                  isSelectedDay ? "selected" : ""
-                }`}
+                className={`day-column ${isSelectedDay ? "selected" : ""}`}
                 onClick={() => handleDayClick(date)}
               >
                 <div className="date-header">
@@ -202,22 +196,21 @@ function Workout() {
         )}
       </div>
 
+      <div className="black-line"></div>
 
-        <div className="black-line"></div>
-
-        {/* Page Selector */}
-        <div className="page-selector">
-          <button className="page-nav prev">PREV</button>
-          {[1, 2, 3, 4, 5].map((number) => (
-            <button
-              key={number}
-              className={`page-number ${number === 1 ? "active" : ""}`}
-            >
-              {number}
-            </button>
-          ))}
-          <button className="page-nav next">NEXT</button>
-        </div>
+      {/* Page Selector */}
+      <div className="page-selector">
+        <button className="page-nav prev">PREV</button>
+        {[1, 2, 3, 4, 5].map((number) => (
+          <button
+            key={number}
+            className={`page-number ${number === 1 ? "active" : ""}`}
+          >
+            {number}
+          </button>
+        ))}
+        <button className="page-nav next">NEXT</button>
+      </div>
     </>
   );
 }

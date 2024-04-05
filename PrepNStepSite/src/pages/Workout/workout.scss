@@ -122,7 +122,6 @@ $day-column-width: 14.28%; // This ensures equal width for 7 days
 
 .today-button-container {
   text-align: center; // Centers the "Today" button if the container is full width
-  padding: 0.5em; // Gives some space around the button
 
   .today-button {
     background-color: $background-color; // White background
@@ -162,10 +161,9 @@ $day-column-width: 14.28%; // This ensures equal width for 7 days
       padding: 1em 0;
       cursor: pointer;
 
-      &.today,
       &.selected {
-        background-color: $today-color;
-        border-radius: 4px; // Rounded corners for today and selected day
+        background-color: $today-color; // Use a variable or specific color for selected day
+        border-radius: 4px; // Keep rounded corners for the selected day
       }
 
       .date-header {

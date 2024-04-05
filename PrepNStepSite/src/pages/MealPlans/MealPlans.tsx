@@ -73,7 +73,7 @@ function MealPlanSelection() {
   const [pricePerServing, _setPricePerServing] = useState(4.37);
   const shippingCost = 0;
 // Define the state with an explicit type
-const [selectedCategories, setSelectedCategories] = useState<string[]>(['Bulking']);
+const [selectedCategory, setSelectedCategory] = useState<string>("Bulking");
 const [promoCode, setPromoCode] = useState("");
 
 
@@ -85,9 +85,8 @@ const calculateTotal = () => {
   const baseCost = servingsPerMeal * mealsPerWeek * pricePerServing;
   total += baseCost;
 
-  // Additional categories calculation
-  // Multiply the base cost by the number of selected categories
-  total += (selectedCategories.length * servingsPerMeal * mealsPerWeek * pricePerServing);
+  // No need to multiply by the number of selected categories anymore
+  total += baseCost;
 
   return total.toFixed(2);
 };
@@ -95,16 +94,7 @@ const calculateTotal = () => {
 
   // Handlers
   const handleSelectCategory = (category: string) => {
-    setSelectedCategories(prevSelectedCategories => {
-      const isSelected = prevSelectedCategories.includes(category);
-      if (isSelected) {
-        // If it's already selected, we remove it from the array
-        return prevSelectedCategories.filter(c => c !== category);
-      } else {
-        // If it's not selected, we add it to the array
-        return [...prevSelectedCategories, category];
-      }
-    });
+    setSelectedCategory(category);
   };
 
 
@@ -128,7 +118,7 @@ const calculateTotal = () => {
             <div
               key={category.title}
               className={`category-item ${
-                selectedCategories.includes(category.title) ? "selected" : ""
+                selectedCategory === category.title ? "selected" : ""
               }`}
               onClick={() => handleSelectCategory(category.title)}
             >
@@ -151,22 +141,22 @@ const calculateTotal = () => {
                 type="Meal Kits"
                 isSelected={planType === "Meal Kits"}
                 onClick={() => setPlanType("Meal Kits")}
-                description="Ingredients and easy-to-follow recipes for home-cooked meals"
+                description="Fresh ingredients and step-by-step recipes for delicious homemade meals."
                 imageSrc={MealKits} // Replace with actual image path
               />
               <PlanTypeOption
-                type="Prepared & Ready"
-                isSelected={planType === "Prepared & Ready"}
-                onClick={() => setPlanType("Prepared & Ready")}
-                description="Pre-made meals delivered fresh ready in as little as 2 minutes"
+                type="Prepped & Set"
+                isSelected={planType === "Prepped & Set"}
+                onClick={() => setPlanType("Prepped & Set")}
+                description="Enjoy freshly prepared meals delivered to your door, ready to savor in just 2 minutes."
                 imageSrc={MealPrep} // Replace with actual image path
               />
             </div>
 
             <div className="description">
               {planType === "Meal Kits"
-                ? "Ingredients and easy-to-follow recipes for home-cooked meals"
-                : "Pre-made meals delivered fresh and ready in as little as 2 minutes."}
+                ? "Cooking made effortless with our curated selection of fresh, high-quality ingredients paired with easy-to-follow recipes, ensuring every homemade meal is a delightful culinary experience."
+                : "Savor the convenience of gourmet meals delivered directly to your doorstep, meticulously prepared and ready to indulge in within minutes."}
             </div>
           </div>
           <div>
