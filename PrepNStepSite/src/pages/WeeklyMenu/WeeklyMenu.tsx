@@ -1,16 +1,14 @@
 //WeeklyMenu.tsx
 
 import { useState, useRef } from "react";
+import { NavLink } from "react-router-dom";
+
 import "./weeklymenu.scss";
 
 import craft from "../../assets/weeklyMenu/craft.png";
 
 function WeeklyMenu() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-
-  function handleClick() {
-    window.location.href = "/mealplans";
-  }
 
   const mealOptions = [
     {
@@ -111,19 +109,19 @@ function WeeklyMenu() {
           <nav className="meal-kits-nav">
             <ul>
               <li className="active">
-                <a href="/weeklymenu">Meal Kits</a>
+                <NavLink to="/weeklymenu">Meal Kits</NavLink>
                 <span>2 servings</span>
               </li>
               <li>
-                <a href="/MuscleGain">Muscle Gain</a>
+                <NavLink to="/MuscleGain">Muscle Gain</NavLink>
                 <span>4 servings</span>
               </li>
               <li>
-                <a href="/Cutting">Cutting</a>
+                <NavLink to="/Cutting">Cutting</NavLink>
                 <span>1 serving</span>
               </li>
               <li>
-                <a href="/ChefsChoice">Chefs Choice</a>
+                <NavLink to="/ChefsChoice">Chefs Choice</NavLink>
                 <span>Servings vary</span>
               </li>
             </ul>
@@ -131,9 +129,9 @@ function WeeklyMenu() {
 
           <div className="week-and-plans">
             <h2 className="week-title">Week of April 1st</h2>
-            <button onClick={handleClick} className="see-plans-button">
-              SEE PLANS
-            </button>
+            <NavLink to="/mealplans">
+              <button className="see-plans-button">SEE PLANS</button>
+            </NavLink>
           </div>
         </header>
 
@@ -198,7 +196,6 @@ function WeeklyMenu() {
           </div>
         </div>
       </section>
-
     </>
   );
 }
