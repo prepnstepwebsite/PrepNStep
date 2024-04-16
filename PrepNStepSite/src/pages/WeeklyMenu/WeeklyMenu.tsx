@@ -1,7 +1,6 @@
 //WeeklyMenu.tsx
 
 import { useState, useRef } from "react";
-import { NavLink } from "react-router-dom";
 
 import "./weeklymenu.scss";
 
@@ -9,6 +8,10 @@ import craft from "../../assets/weeklyMenu/craft.png";
 
 function WeeklyMenu() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+  function handleClick() {
+    window.location.href = "/mealplans";
+  }
 
   const mealOptions = [
     {
@@ -106,22 +109,22 @@ function WeeklyMenu() {
       {/* Begging of the navbar */}
       <div className="meal-kits-page">
         <header className="meal-kits-header">
-          <nav className="meal-kits-nav">
+        <nav className="meal-kits-nav">
             <ul>
               <li className="active">
-                <NavLink to="/weeklymenu">Meal Kits</NavLink>
+                <a href="/weeklymenu">Meal Kits</a>
                 <span>2 servings</span>
               </li>
               <li>
-                <NavLink to="/MuscleGain">Muscle Gain</NavLink>
+                <a href="/MuscleGain">Muscle Gain</a>
                 <span>4 servings</span>
               </li>
               <li>
-                <NavLink to="/Cutting">Cutting</NavLink>
+                <a href="/Cutting">Cutting</a>
                 <span>1 serving</span>
               </li>
               <li>
-                <NavLink to="/ChefsChoice">Chefs Choice</NavLink>
+                <a href="/ChefsChoice">Chefs Choice</a>
                 <span>Servings vary</span>
               </li>
             </ul>
@@ -129,9 +132,9 @@ function WeeklyMenu() {
 
           <div className="week-and-plans">
             <h2 className="week-title">Week of April 1st</h2>
-            <NavLink to="/mealplans">
-              <button className="see-plans-button">SEE PLANS</button>
-            </NavLink>
+            <button onClick={handleClick} className="see-plans-button">
+              SEE PLANS
+            </button>
           </div>
         </header>
 
