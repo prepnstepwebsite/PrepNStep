@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { NavLink } from "react-router-dom";
 import { ReviewCard } from "../../components/Reviews/Reviews";
 import socialReviews from "../../assets/images/Reviews.png";
 import weeklyMenuData from "./weeklyMenu";
@@ -205,12 +206,9 @@ const Home = () => {
           ))}
         </div>
         <div className="menu-button-container">
-        <button
-            className="menu-button"
-            onClick={() => (window.location.href = "/weeklymenu")}
-          >
-            BROWSE OUR MENUS
-          </button>
+          <NavLink to="/weeklymenu">
+            <button className="menu-button">BROWSE OUR MENUS</button>
+          </NavLink>
         </div>
       </section>
 
