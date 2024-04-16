@@ -106,7 +106,7 @@ function WeeklyMenu() {
       {/* Begging of the navbar */}
       <div className="meal-kits-page">
         <header className="meal-kits-header">
-          <nav className="meal-kits-nav">
+          <div className="meal-kits-nav">
             <ul>
               <li className="active">
                 <NavLink to="/weeklymenu">Meal Kits</NavLink>
@@ -125,12 +125,12 @@ function WeeklyMenu() {
                 <span>Servings vary</span>
               </li>
             </ul>
-          </nav>
+          </div>
 
           <div className="week-and-plans">
             <h2 className="week-title">Week of April 1st</h2>
-            <NavLink to="/plans">
-              <button className="see-plans-button">SEE PLANS</button>
+            <NavLink to="/mealplans">
+              <button className="see-plans-button">MEALPLANS</button>
             </NavLink>
           </div>
         </header>
