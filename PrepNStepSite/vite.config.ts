@@ -10,14 +10,13 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: './index.html',
-        home: './home.html',
         weeklymenu: './weeklymenu.html',
         mealplans: './mealplans.html',
         workout: "./workout.html",
         blog: "./blog.html",
-        musclegain: "./musclegain.html",
-        cutting: "./cutting.html",
-        chefschoice: "./chefschoice.html"
+        MuscleGain: "./MuscleGain.html",
+        Cutting: "./Cutting.html",
+        ChefsChoice: "./ChefsChoice.html"
       }
     }
   },

@@ -205,10 +205,13 @@ const Home = () => {
           ))}
         </div>
         <div className="menu-button-container">
-  <button className="menu-button" onClick={() => window.location.href = '/WeeklyMenu'}>
-    BROWSE OUR MENUS
-  </button>
-</div>
+          <button
+            className="menu-button"
+            onClick={() => (window.location.href = "/weeklymenu")}
+          >
+            BROWSE OUR MENUS
+          </button>
+        </div>
       </section>
 
       {/* Beginning of Reviews */}
