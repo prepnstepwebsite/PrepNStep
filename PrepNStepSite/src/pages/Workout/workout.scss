@@ -36,12 +36,14 @@
 // Define your color palette and other style variables
 $background-color: #ffffff;
 $text-color: black;
-$today-color: rgb(201, 201, 201);
+$today-color: #dfdfde;
+
 $button-spacing: 13em; // Reduced spacing for a tighter layout
 $day-column-width: 14.28%; // This ensures equal width for 7 days
 
 // Base calendar styles
 .calendar-header-container {
+  font-family: "Poppins", sans-serif;
   background: none;
   display: flex;
   justify-content: center; // Always center the content
@@ -52,6 +54,7 @@ $day-column-width: 14.28%; // This ensures equal width for 7 days
   margin: auto; // Centers the entire container within its parent
 
   .nav-button {
+    font-family: "Poppins", sans-serif;
     background: none; // No background
     border: none; // No border
     position: absolute;
@@ -121,6 +124,7 @@ $day-column-width: 14.28%; // This ensures equal width for 7 days
 }
 
 .today-button-container {
+  margin-bottom: 10px;
   text-align: center; // Centers the "Today" button if the container is full width
 
   .today-button {
@@ -153,17 +157,18 @@ $day-column-width: 14.28%; // This ensures equal width for 7 days
   color: $text-color;
 
   .week {
+    font-family: "Poppins", sans-serif;
     display: flex;
 
     .day-column {
       width: $day-column-width; // Set width to distribute space evenly
       text-align: center;
       padding: 1em 0;
+      background-color: #F8F8F8;
       cursor: pointer;
 
       &.selected {
         background-color: $today-color; // Use a variable or specific color for selected day
-        border-radius: 4px; // Keep rounded corners for the selected day
       }
 
       .date-header {
@@ -175,6 +180,7 @@ $day-column-width: 14.28%; // This ensures equal width for 7 days
 
         .weekday {
           color: $text-color;
+  
         }
 
         .day-number {
@@ -257,6 +263,7 @@ $day-column-width: 14.28%; // This ensures equal width for 7 days
     }
 
     .trainer-info {
+      font-family: "Poppins", sans-serif;
       flex-basis: 50%; // Allocate 50% of the width to the content
       padding: 1em;
       display: flex;
@@ -293,6 +300,7 @@ $day-column-width: 14.28%; // This ensures equal width for 7 days
       padding: 0 16px; // Consistent padding
 
       .class {
+        font-family: "Poppins", sans-serif;
         text-align: center;
         margin-bottom: 0.5rem; // Fixed margin for uniform spacing
 
