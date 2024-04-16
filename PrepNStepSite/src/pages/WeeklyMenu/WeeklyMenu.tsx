@@ -130,7 +130,7 @@ function WeeklyMenu() {
           <div className="week-and-plans">
             <h2 className="week-title">Week of April 1st</h2>
             <NavLink to="/mealplans">
-              <button className="see-plans-button">MEALPLANS</button>
+              <button className="see-plans-button">See Plans</button>
             </NavLink>
           </div>
         </header>
