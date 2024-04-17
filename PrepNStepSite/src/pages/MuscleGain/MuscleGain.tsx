@@ -1,10 +1,10 @@
 import { useState, useRef } from "react";
 import "../../pages/MealPlans/mealplans.scss"
+import { NavLink } from "react-router-dom";
 
 
 
-import wellness from "../../assets/weeklyMenu/wellness.png";
-
+import pasta from "../../assets/weeklyMenu/pasta.png";
 
 
 function MealPlans() {
@@ -17,42 +17,42 @@ function MealPlans() {
       name: "Pesto & Roasted Red Pepper Pan Pizza",
       description: "with Arugula Salad & Almonds",
       prepTime: "40 MIN",
-      image: wellness,
+      image: pasta,
       tag: "KETO FRIENDLY",
     },
     {
       name: "Pesto & Roasted Red Pepper Pan Pizza",
       description: "with Arugula Salad & Almonds",
       prepTime: "40 MIN",
-      image: wellness,
+      image: pasta,
       tag: "KETO FRIENDLY",
     },
     {
       name: "Pesto & Roasted Red Pepper Pan Pizza",
       description: "with Arugula Salad & Almonds",
       prepTime: "40 MIN",
-      image: wellness,
+      image: pasta,
       tag: "KETO FRIENDLY",
     },
     {
       name: "Pesto & Roasted Red Pepper Pan Pizza",
       description: "with Arugula Salad & Almonds",
       prepTime: "40 MIN",
-      image: wellness,
+      image: pasta,
       tag: "KETO FRIENDLY",
     },
     {
       name: "Pesto & Roasted Red Pepper Pan Pizza",
       description: "with Arugula Salad & Almonds",
       prepTime: "40 MIN",
-      image: wellness,
+      image: pasta,
       tag: "KETO FRIENDLY",
     },
     {
       name: "Pesto & Roasted Red Pepper Pan Pizza",
       description: "with Arugula Salad & Almonds",
       prepTime: "40 MIN",
-      image: wellness,
+      image: pasta,
       tag: "KETO FRIENDLY",
     },
 
@@ -98,7 +98,7 @@ function MealPlans() {
           {/* Beginning of Header */}
           <div className="header-container">
         <div className="header-content">
-          <h1 className="header-title">Cutting</h1>
+          <h1 className="header-title">Muscle Gain</h1>
           <p className="header-subtitle">
             An ever-changing mix of easy-to-follow recipes perfectly portioned
             for two.
@@ -114,11 +114,11 @@ function MealPlans() {
                 <a href="/weeklymenu">Meal Kits</a>
                 <span>2 servings</span>
               </li>
-              <li>
+              <li className="active">
                 <a href="/MuscleGain">Muscle Gain</a>
                 <span>4 servings</span>
               </li>
-              <li className="active">
+              <li>
                 <a href="/Cutting">Cutting</a>
                 <span>1 serving</span>
               </li>
@@ -128,9 +128,12 @@ function MealPlans() {
               </li>
             </ul>
           </nav>
+
           <div className="week-and-plans">
             <h2 className="week-title">Week of April 1st</h2>
-            <button className="see-plans-button">SEE PLANS</button>
+            <NavLink to="/mealplans">
+              <button className="see-plans-button">See Plans</button>
+            </NavLink>
           </div>
         </header>
 
@@ -173,8 +176,6 @@ function MealPlans() {
       </div>
 
 
-    
-
             {/* FAQ Section */}
             <section className="faq-section">
       <div className="container">
@@ -201,6 +202,8 @@ function MealPlans() {
       </div>
       </div>
     </section>
+
+      
     </>
   );
 }
