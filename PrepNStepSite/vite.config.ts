@@ -14,9 +14,10 @@ export default defineConfig({
         mealplans: './mealplans.html',
         workout: "./workout.html",
         blog: "./blog.html",
-        MuscleGain: "./MuscleGain.html",
-        Cutting: "./Cutting.html",
-        ChefsChoice: "./ChefsChoice.html"
+        musclegain: "./MuscleGain.html",
+        cutting: "./Cutting.html",
+        chefschoice: "./ChefsChoice.html",
+        404: "./404.html"
       }
     }
   },
