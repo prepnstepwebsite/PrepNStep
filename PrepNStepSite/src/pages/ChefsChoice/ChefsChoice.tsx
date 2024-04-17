@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import "../../pages/MealPlans/mealplans.scss"
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 import chef from "../../assets/weeklyMenu/chefChoice.png";
@@ -108,19 +108,19 @@ function MealPlans() {
           <nav className="meal-kits-nav">
             <ul>
               <li>
-                <a href="/weeklymenu">Meal Kits</a>
+                <Link to="/weeklymenu">Meal Kits</Link>
                 <span>2 servings</span>
               </li>
               <li>
-                <a href="/MuscleGain">Muscle Gain</a>
+                <Link to="/musclegain">Muscle Gain</Link>
                 <span>4 servings</span>
               </li>
               <li>
-                <a href="/Cutting">Cutting</a>
+                <Link to="/cutting">Cutting</Link>
                 <span>1 serving</span>
               </li>
               <li className="active">
-                <a href="/ChefsChoice">Chefs Choice</a>
+                <Link to="/chefschoice">Chefs Choice</Link>
                 <span>Servings vary</span>
               </li>
             </ul>
@@ -128,9 +128,9 @@ function MealPlans() {
 
           <div className="week-and-plans">
             <h2 className="week-title">Week of April 1st</h2>
-            <NavLink to="/mealplans">
+            <Link to="/mealplans">
               <button className="see-plans-button">See Plans</button>
-            </NavLink>
+            </Link>
           </div>
         </header>
 
@@ -139,7 +139,7 @@ function MealPlans() {
 
           {mealOptions.map((meal, index) => (
             <div className="meal-option" key={index}>
-                  <a href="/meal-detail" className="meal-card">
+                  <a className="meal-card">
 
               <img src={meal.image} alt={meal.name} />
               <div className="meal-tag">{meal.tag}</div>

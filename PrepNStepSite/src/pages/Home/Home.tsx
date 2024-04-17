@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { ReviewCard } from "../../components/Reviews/Reviews";
 import socialReviews from "../../assets/images/Reviews.png";
 import weeklyMenuData from "./weeklyMenu";
@@ -206,9 +206,9 @@ const Home = () => {
           ))}
         </div>
         <div className="menu-button-container">
-          <NavLink to="/weeklymenu">
+          <Link to="/weeklymenu">
             <button className="menu-button">BROWSE OUR MENUS</button>
-          </NavLink>
+          </Link>
         </div>
       </section>
 
