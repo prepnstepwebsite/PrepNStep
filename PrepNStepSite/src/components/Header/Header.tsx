@@ -11,9 +11,9 @@ const Header = () => {
     const path = location.pathname;
     return (
       path.startsWith("/weeklymenu") ||
-      path.startsWith("/ChefsChoice") ||
-      path.startsWith("/Cutting") ||
-      path.startsWith("/MuscleGain")
+      path.startsWith("/chefschoice") ||
+      path.startsWith("/cutting") ||
+      path.startsWith("/musclegain")
     );
   };
 
